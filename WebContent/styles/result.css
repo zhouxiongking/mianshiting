@@ -1,0 +1,24 @@
+.success-div
+{
+	text-align: center;
+	font-size: 20px;
+}
+
+.success-info
+{
+	text-align: center;
+	margin-top: 100px;
+	margin-bottom: 100px;
+}
+
+.continue-vote
+{
+	text-decoration: underline;
+	color: #666;
+}
+
+.continue-vote:hover
+{
+	color: blue;
+}
+

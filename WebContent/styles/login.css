@@ -1,0 +1,290 @@
+﻿body, ul, ol, li, p, h1, h2, h3, h4, h5, h6, form, fieldset, table, td, img, div 
+{
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+td, p, li, select, input, textarea, div 
+{
+	font-size: 12px;
+}
+
+body 
+{
+	background: #fff;
+	color: #000;
+	text-align: left;
+}
+
+body 
+{
+	
+	font-size: 12px;
+	background: #dfebf5 url('/images/bg.gif') repeat-x left top;
+}
+
+.wrap
+{
+	width: 100%;
+	height: 400px;
+	background: url("/images/bghead.jpg") repeat-x center top;
+}
+
+.head 
+{
+	width: 781px;
+	margin: 0 auto;
+}
+
+.logo 
+{
+	float: left;
+	width: 153px;
+	height: 40px;
+	/*background: url('/images/signup/logo.png') no-repeat;*/
+	margin: 30px 0 10px 5px;
+	line-height: 55px;
+	text-align: right;
+}
+
+.logotxt 
+{
+	float: left;
+	margin: 50px 0 0 10px;
+}
+
+.main
+{
+	width: 781px;
+	clear: both;
+	margin: 0 auto;
+	position: relative;
+}
+
+.main_top 
+{
+	width: 781px;
+	height: auto;
+	min-height: 90px;
+	background: #fff url('/images/bghead_top.gif') no-repeat;
+	overflow: hidden;
+}
+
+.title_note1 
+{
+	padding-top: 55px;
+	text-align: center;
+}
+
+.red 
+{
+	color: #c00;
+	font-family: Verdana;
+}
+
+.error_2 
+{
+	width: 14px;
+	height: 30px;
+	background: url('/images/btn.gif') no-repeat;
+	background-position: -165px -79px;
+	_background-position: -165px -82px;
+	display: block;
+	float: left;
+	margin: 0 3px 0 3px;
+}
+
+.main_cen 
+{
+	height: auto;
+	min-height: 200px;
+	background: #fff;
+	border-left: 1px solid #86adc6;
+	border-right: 1px solid #86adc6;
+	padding: 10px 0 50px 0;
+}
+
+.title1 
+{
+	width: 670px;
+	height: 35px;
+	line-height: 35px;
+	clear: both;
+	background: #fff;
+	border-top: 1px solid #cad6df;
+	padding: 0 15px;
+	margin: 0 auto;
+	font-size: 14px;
+	font-weight: bold;
+	color: #333;
+}
+
+ul.mainlogin 
+{
+	width: 704px;
+	clear: both;
+	margin: 0px auto;
+	padding: 10px 0;
+}
+
+ul 
+{
+	list-style-type: none;
+}
+
+.ml_l 
+{
+	float: left;
+	width: 275px;
+	height: 30px;
+	line-height: 30px;
+	text-align: right;
+	padding-right: 5px;
+}
+
+.f14 
+{
+	font-size: 14px;
+}
+
+.ml_r 
+{
+	float: left;
+	width: 420px;
+	margin-bottom: 12px;
+	position: relative;
+}
+
+.inputbox 
+{
+	float: left;
+	width: 180px;
+	margin-right: 10px;
+}
+
+.inputbox .input 
+{
+	float: left;
+	width: 10px;
+	height: 24px;
+	line-height: 24px;
+	background: url('/images/btn.gif') left -135px;
+	margin: 3px 5px 3px 0;
+}
+
+.inputbox .input cite 
+{
+	float: left;
+	height: 24px;
+	line-height: 24px;
+	background: url('/images/btn.gif') right -164px;
+	margin-left: 10px;
+	padding: 2px 10px 0 0;
+	width: 160px;
+	font-family: "宋体";
+	font-style: normal;
+}
+
+.inputbox .input input 
+{
+	background: #ffffef;
+	width: 100%;
+	height: 18px;
+	line-height: 18px;
+	padding: 2px 2px 0 0;
+	border: 0;
+	font-family: Verdana,"宋体";
+}
+
+.inputacc_signin
+{
+	float: left;
+}
+
+.inputacc
+{
+	line-height: 26px;
+	vertical-align: top;
+}
+
+a:visited 
+{
+	color: #1e50a2;
+}
+
+.link a:link, .link a:visited, .link a:hover 
+{
+	color: #1e50a2;
+	text-decoration: underline;
+}
+
+.inputacc_signin 
+{
+	float: left;
+}
+
+.red_ero 
+{
+	color: #c00;
+	font-family: Verdana;
+	vertical-align: middle;
+	display: block;
+	line-height: 30px;
+	height: 30px; 
+	float: left;
+	overflow: hidden; 
+}
+
+select, input 
+{
+	//vertical-align: middle;
+}
+
+.btn_submit_m 
+{
+	width: 122px;
+	height: 34px;
+	line-height: 34px;
+	text-align: center;
+	margin: 10px 10px 0 0;
+	background: url('/images/btn.gif') no-repeat 0 -38px;
+	font-size: 18px;
+	color: #fff;
+	text-decoration: none;
+	font-family: "微软雅黑";
+	border: 0;
+	cursor: pointer;
+}
+
+.clearit 
+{
+	clear: both;
+}
+
+.main_bottom 
+{
+	width: 781px;
+	height: 5px;
+	background: url('/images/bghead_bottom.gif') no-repeat;
+	overflow: hidden;
+}
+
+.zero-opacity
+{
+	opacity: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

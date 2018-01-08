@@ -1,0 +1,49 @@
+.show-user-info
+{
+	padding: 10px;
+}
+
+.show-user-info ul
+{
+	list-style: none;
+	border-bottom: 1px solid #cad89d;
+}
+
+.show-user-info ul li
+{
+	line-height: 40px;
+}
+
+.show-user-info ul li span
+{
+	color: blue;
+}
+
+.show-user-info h4
+{
+	text-indent: 20px;
+	border-bottom: 1px solid #cad89d;
+	padding-bottom: 5px;
+}
+
+.return-a
+{
+	margin-left: 20px;
+	text-decoration: none;	
+	color: #2244DD;
+}
+
+.return-a:hover
+{
+	text-decoration: underline;
+}
+
+.bl
+{
+	color: blue;
+}
+
+
+
+
+

@@ -1,0 +1,292 @@
+.main-outerWrap 
+{
+	padding: 25px 0 30px 0;
+}
+
+.active_doing 
+{
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	z-index: 999;
+	margin-top: -100px;
+	margin-left: 550px;
+	width: 80px;
+	height: 170px;
+}
+
+.active_doing a.tougao 
+{
+	background: #00ae54;
+}
+
+.active_doing a.tougao:hover 
+{
+	background: #00a024;
+}
+
+.active_doing a 
+{
+	display: block;
+	width: 80px;
+	height: 80px;
+	background: red;
+	color: #fff;
+	font-size: 20px;
+}
+
+.active_doing a span 
+{
+	display: block;
+	margin-left: 20px;
+	padding-top: 15px;
+	width: 50px;
+	height: 50px;
+}
+
+
+.main-nav-wrap 
+{
+	margin: 0;
+	width: 1000px;
+	height: 18px;
+	overflow: hidden;
+	position: relative;
+}
+
+.clearfix:after 
+{
+	content: "\0020";
+	display: block;
+	height: 0;
+	clear: both;
+}
+
+.main-nav-wrap ul 
+{
+	margin-bottom: 0;
+}
+
+.udv-clearfix, .clearfix 
+{
+	zoom: 1;
+}
+
+ol, ul 
+{
+	list-style: none;
+}
+
+.main-nav-wrap li 
+{
+	width: 121px;
+}
+
+.main-nav-wrap li 
+{
+	padding: 0 0 0 20px;
+	height: 18px;
+	line-height: 18px;
+	overflow: hidden;
+	font-size: 16px;
+	color: #333;
+	font-family: "Microsoft Yahei",SimHei;
+	border-right: 1px solid #B2B2B2;
+	float: left;
+	display: inline;
+}
+
+.main-nav-wrap li 
+{
+	width: 160px;
+	padding-left: 0;
+	text-align: center;
+}
+
+.main-nav-wrap li:last-child
+{
+	border-right: none;
+}
+
+.main-nav-wrap a:link, .main-nav-wrap a:visited 
+{
+	color: #333;
+	text-decoration: none;
+}
+
+.main-nav-wrap a:hover
+{
+	color: #ab000e !important;
+}
+
+.part00 
+{
+	position: relative;
+}
+
+.part00 h2 
+{
+	position: relative;
+}
+
+.txt-y 
+{
+	display: block;
+	height: 30px;
+	margin-bottom: 22px;
+	width: 130px;
+}
+
+.see_title
+{
+	font-size: 24px;
+	font-weight: bold;
+	color: #000;
+}
+
+.piclist .box 
+{
+	width: 1000px;
+	margin-bottom: 35px;
+	position: relative;
+	border-bottom: 1px solid #e1e1e1;
+	background: #FFF;
+}
+
+.scroll_btns 
+{
+	height: 50px;
+	position: relative;
+	width: 1000px;
+	background: url("/images/picture/photo_zxa_0614_see.png") no-repeat 92px -184px;
+}
+
+.scroll_btns .like_btn 
+{
+	cursor: pointer;
+	left: 860px;
+	top: 15px;
+}
+
+.scroll_btns .like_btn:hover 
+{
+	background: url("/images/picture/photo_zxa_0614_see.png") -768px -263px no-repeat;
+}
+
+.scroll_btns a 
+{
+	height: 22px;
+	padding-left: 24px;
+}
+
+.scroll_btns a 
+{
+	display: block;
+	position: absolute;
+}
+
+.scroll_btns .cmt_btn 
+{
+	cursor: pointer;
+	left: 935px;
+	top: 15px;
+}
+
+.scroll_btns .cmt_num 
+{
+	color: #666;
+}
+
+.scroll_btns .cmt_btn:hover 
+{
+	background: url("/images/picture/photo_zxa_0614_see.png") -843px -263px no-repeat;
+}
+
+.scroll_btns a span 
+{
+	color: #666;
+	display: block;
+	height: 22px;
+	line-height: 24px;
+	float: left;
+}
+
+.piclist .box .title 
+{
+	display: block;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	height: 50px;
+	line-height: 50px;
+	font-size: 20px;
+	color: #000;
+	width: 750px;
+	padding-left: 14px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+.piclist .box .scroll_author
+{
+	height: 50px;
+	position: relative;
+	width: 1000px;
+	font-size: 20px;
+	line-height: 35px;
+}
+
+.piclist .box .author
+{
+	padding-left: 14px;
+	color: #000;
+}
+
+.piclist .box .author_name
+{
+	color: #75c398;
+}
+
+.change_page
+{
+	text-align: right;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #e1e1e1;
+	font-size: 14px;
+}
+
+.a_page
+{
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+.a_page:hover
+{
+	color: blue;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,56 @@
+body, h1, h2, h3, h4, h5, h6, dl, dt, dd, ul, ol, li, th, td, p, blockquote, pre, form, fieldset, legend, input, button, textarea, hr 
+{
+	margin: 0;
+	padding: 0;
+}
+
+body, button, input, select, textarea 
+{
+	font: 12px/1.125 "Simsun", "Arial Narrow", HELVETICA;
+	color: #000;
+}
+
+.wrap
+{
+	margin: 0 auto;
+	width: 900px;
+}
+
+.inner
+{
+	padding: 200px 0 0 200px;
+}
+
+.inner .fl
+{
+	float: left;
+}
+
+.inner h4
+{
+	font-size: 24px;
+	float: left;
+	padding: 15px 0 0 16px;
+	width: 490px;
+	height: 45px;
+}
+
+.to_login
+{
+	color: #0a8cd2;
+	text-decoration: none;
+}
+
+.to_login:hover
+{
+	text-decoration: underline;
+}
+
+
+
+
+
+
+
+
+

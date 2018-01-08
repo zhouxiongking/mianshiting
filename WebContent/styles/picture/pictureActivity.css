@@ -1,0 +1,474 @@
+﻿.active_doing 
+{
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	z-index: 999;
+	margin-top: -100px;
+	margin-left: 550px;
+	width: 80px;
+	height: 170px;
+}
+
+.active_doing a.tougao 
+{
+	background: #00ae54;
+}
+
+.active_doing a.tougao:hover 
+{
+	background: #00a024;
+}
+
+.active_doing a 
+{
+	display: block;
+	width: 80px;
+	height: 80px;
+	background: red;
+	color: #fff;
+	font-size: 20px;
+}
+
+.active_doing a span 
+{
+	display: block;
+	margin-left: 20px;
+	padding-top: 15px;
+	width: 50px;
+	height: 50px;
+}
+
+.yyc_content 
+{
+	margin: 0 auto;
+	width: 1000px;
+	height: auto;
+}
+
+.clearfix 
+{
+	zoom: 1;
+}
+
+.main_active_info 
+{
+	position: relative;
+	margin-top: 30px;
+	height: 350px;
+}
+
+.clearfix:after 
+{
+	content: ".";
+	display: block;
+	height: 0;
+	visibility: hidden;
+	clear: both;
+}
+
+.top_left 
+{
+	position: relative;
+	width: 340px;
+	height: 350px;
+	background: #333;
+}
+
+.fl 
+{
+	float: left;
+}
+
+.top_left .tips_top 
+{
+	width: 340px;
+}
+
+.top_left .tips_top .active_main_title 
+{
+	margin: 40px 12px 0px;
+	color: #fff;
+	text-align: center;
+	font-size: 20px;
+}
+
+.tips_top .pic_msg 
+{
+	display: block;
+	margin-top: 10px;
+	padding-top: 15px;
+	padding-left: 85px;
+	height: 30px;
+	color: #999;
+	line-height: 18px;
+}
+
+.tips_top .pic_msg a 
+{
+	float: left;
+	overflow: hidden;
+	width: 75px;
+	height: 20px;
+	text-align: center;
+}
+
+.tips_top .pic_msg span 
+{
+	float: left;
+	margin-top: 3px;
+	margin-left: 5px;
+	width: 3px;
+	height: 20px;
+	background: url("/images/picture/dashed.png") no-repeat;
+}
+
+.tips_top .pic_msg a.person i 
+{
+	background-position: -595px -522px;
+}
+
+.tips_top .pic_msg a i 
+{
+	padding-left: 25px;
+	height: 20px;
+	background: url("/images/picture/back.png") no-repeat;
+	color: #999;
+	font-style: normal;
+	font-size: 12px;
+	line-height: 18px;
+}
+
+.tips_top .pic_msg a.picNum i 
+{
+	background-position: -595px -560px;
+}
+
+.top_left .tips_bottom 
+{
+	position: relative;
+	margin-top: 90px;
+	width: 340px;
+	background: #333;
+}
+
+.tips_bottom a.active_tougao 
+{
+	display: none;
+	margin-bottom: 10px;
+	background: #00ad54;
+	color: #fff;
+}
+
+a.active_tougao:hover
+{
+	opacity: .85;
+}
+
+.tips_bottom a.not_info 
+{
+	display: block;
+	margin-left: 90px;
+	width: 160px;
+	height: 50px;
+	text-align: center;
+	font-size: 18px;
+	line-height: 50px;
+}
+
+.top_right
+{
+	position: relative;
+	width: 660px;
+	height: 350px;
+}
+
+.top_right a.main 
+{
+	display: block;
+	width: 660px;
+	height: 350px;
+	cursor: default;
+}
+
+.bd_share 
+{
+	margin-top: 14px;
+	margin-bottom: 10px;
+	height: 30px;
+}
+
+.fr 
+{
+	float: right;
+}
+
+.share_word 
+{
+	margin-top: 12px;
+	height: 30px;
+	line-height: 30px;
+}
+
+#bdshare 
+{
+	z-index: 999999;
+	padding-bottom: 2px;
+	font-size: 12px;
+	float: left;
+	text-align: left!important;
+	zoom: 1;
+}
+
+#bdshare a, #bdshare_s a, #bdshare_pop a 
+{
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.bds_tools a 
+{
+	background: url("/images/picture/is.png") no-repeat;
+}
+
+span.bds_more, .bds_tools a 
+{
+	display: block;
+	font-family: '微软雅黑',Arial;
+	height: 16px;
+	float: left;
+	cursor: pointer;
+	padding-top: 6px;
+	padding-bottom: 3px;
+	padding-left: 22px;
+}
+
+.bds_tsina 
+{
+	background-position: 0 -115px!important;
+}
+
+.bds_qzone 
+{
+	background-position: 0 -75px!important;
+}
+
+.bds_tqq 
+{
+	background-position: 0 -235px!important;
+}
+
+.bds_renren 
+{
+	background-position: 0 -195px!important;
+}
+
+.bds_kaixin001 
+{
+	background-position: 0 -275px!important;
+}
+
+span.bds_more 
+{
+	background: url("/images/picture/is.png") no-repeat 0 5px!important;
+}
+
+.second_active_info 
+{
+	margin-top: 55px;
+	width: 998px;
+	border: 1px solid #ccc;
+}
+
+.second_active_info .second_left 
+{
+	margin: 25px 0 25px 0;
+	width: 300px;
+	height: 150px;
+	border-right: 1px dashed #ccc;
+}
+
+.second_active_info .second_left img
+{
+	margin-top: 20px;
+	margin-left: 10px;
+	box-shadow: 4px 2px 20px rgba(0,0,0,0.3);
+}
+
+.second_active_info .second_left .img_right 
+{
+	margin-top: 20px;
+	width: 180px;
+	height: 100px;
+}
+
+.second_active_info .second_left .img_right .activity_title
+{
+	line-height: 50px;
+	font-size: 18px;
+	padding-left: 10px;
+}
+
+.second_right 
+{
+	position: relative;
+	padding-top: 20px;
+	padding-left: 40px;
+	width: 655px;
+}
+
+.second_right .active_title 
+{
+	font-size: 28px;
+	color: #333;
+	height: 37px;
+}
+
+.active_information 
+{
+	overflow: hidden;
+	margin-top: 10px;
+	font-size: 14px;
+	line-height: 22px;
+	color: #666;
+}
+
+.active_information .ac_info 
+{
+	font-style: normal;
+}
+
+.latest_upload 
+{
+	margin-top: 26px;
+}
+
+.latest_upload .list_title 
+{
+	width: 998px;
+	height: 48px;
+	background: #efefef;
+	border: 1px solid #ccc;
+}
+
+.latest_upload .list_title .left 
+{
+	width: 122px;
+	height: 48px;
+	border-right: 1px solid #ccc;
+}
+
+.latest_upload .list_title .left a.active
+{
+	color: #00ae55;
+}
+
+.latest_upload .list_title .left a 
+{
+	display: block;
+	width: 122px;
+	height: 48px;
+	line-height: 48px;
+	text-align: center;
+	font-size: 18px;
+}
+
+.upload_con 
+{
+	margin-top: 30px;
+}
+
+.latest_upload .upload_list 
+{
+	overflow: hidden;
+	width: 1000px;
+}
+
+.latest_upload .upload_list li 
+{
+	position: relative;
+	float: left;
+	margin-top: 20px;
+	margin-right: 8px;
+	width: 240px;
+	height: 360px;
+	border: 1px solid #ccc;
+}
+
+.latest_upload .upload_list li .imglink 
+{
+	display: block;
+	width: 240px;
+	height: 240px;
+}
+
+.latest_upload .upload_list li .img_title
+{
+	overflow: hidden;
+	width: 95%;
+	color: #333;
+	text-indent: 15px;
+	font-size: 18px;
+	line-height: 45px;
+	height: 40px;
+}
+
+.latest_upload .upload_list li .img_information
+{
+	margin: 0 auto;
+	padding-top: 10px;
+	width: 220px;
+	border-top: 1px dashed #ccc;
+}
+
+.latest_upload .upload_list li .img_information p 
+{
+	line-height: 22px;
+	display: block;
+	height: 22px;
+	overflow: hidden;
+}
+
+.latest_upload .upload_list li .img_information p .green 
+{
+	color: #75c398;
+}	
+
+.img_author
+{
+	font-size: 14px;
+}
+
+.latest_upload .upload_list li:hover 
+{
+	box-shadow: 4px 1px 10px rgba(0,0,0,0.3);
+}
+
+.change_page
+{
+	text-align: right;
+	padding-bottom: 10px;
+	border-top: 1px solid #e1e1e1;
+	font-size: 14px;
+	margin-top: 20px;
+	padding-top: 5px;
+	border-bottom: 1px solid #e1e1e1;
+}
+
+.a_page
+{
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+.a_page:hover
+{
+	color: blue;
+}
+
+
+
+
+
+
+

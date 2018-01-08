@@ -1,0 +1,455 @@
+.focus_body 
+{
+	position: relative;
+	width: 1000px;
+	height: 594px;
+	background: rgb(255, 255, 255);
+	border-bottom: 1px solid rgb(225, 225, 225);
+}
+
+.bd_bg 
+{
+	position: absolute;
+	top: 500px;
+	left: 0px;
+	height: 58px;
+	width: 998px;
+	border-right: 1px solid rgb(225, 225, 225);
+	border-left: 1px solid rgb(225, 225, 225);
+	border-bottom: 1px solid rgb(248, 248, 248);
+	background: rgb(255, 255, 255);
+}
+
+.bd_bg2 
+{
+	position: absolute;
+	top: 559px;
+	left: 0px;
+	height: 35px;
+	width: 998px;
+	border-right: 1px solid rgb(225, 225, 225);
+	border-left: 1px solid rgb(225, 225, 225);
+	background: rgb(252, 252, 252);
+}
+
+.scroll 
+{
+	width: 1000px;
+	margin: 0px auto;
+	position: relative;
+	height: 558px;
+	overflow: hidden;
+}
+
+.arr_left 
+{
+	display: none;
+	position: absolute;
+	width: 70px;
+	height: 70px;
+	cursor: pointer;
+	overflow: hidden;
+	left: 0px;
+	top: 220px;
+	z-index: 3;
+	line-height: 400px;
+	background: url("../../images/photo_share_0616_cover_l.png") no-repeat;
+}
+
+.arr_right 
+{
+	display: none;
+	position: absolute;
+	width: 70px;
+	height: 70px;
+	cursor: pointer;
+	overflow: hidden;
+	right: 0px;
+	top: 220px;
+	z-index: 3;
+	line-height: 400px;
+	background: url("../../images/photo_share_0616_cover_r.png") no-repeat;
+}
+
+.scroll_cont 
+{
+	width: 1000px;
+	height: 558px;
+	overflow: hidden;
+	position: relative;
+}
+
+.scroll_cont_inner
+{
+	overflow: hidden;
+	zoom: 1;
+	width: 32766px;
+}
+
+.scroll .box 
+{
+	float: left;
+	width: 1000px;
+	height: 558px;
+	position: relative;
+}
+
+.scroll .box img 
+{
+	width: 1000px;
+	height: 500px;
+	cursor: pointer;
+}
+
+.scroll .box .title 
+{
+	display: block;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	height: 58px;
+	line-height: 58px;
+	font-size: 22px;
+	color: #000;
+	width: 800px;
+	padding-left: 14px;
+}
+
+.numList 
+{
+	position: absolute;
+	right: 405px;
+	bottom: 4px;
+	height: 35px;
+}
+
+.numList span.selected 
+{
+	background: url("/images/photo_share_0809_dot_f.gif") no-repeat;
+}
+
+.numList span 
+{
+	display: inline-block;
+	width: 18px;
+	height: 18px;
+	margin-right: 5px;
+	cursor: pointer;
+	background: url("/images/photo_share_0809_dot.gif") no-repeat;
+	margin-top: 14px;
+}
+
+.scroll_tw 
+{
+	margin: 32px 0px 34px;
+}
+
+.tuwen 
+{
+	display: inline;
+	float: left;
+	width: 320px;
+	margin-right: 20px;
+	position: relative;
+}
+
+.tw_fold 
+{
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	background: rgb(255, 255, 255);
+	width: 150px;
+	padding: 5px 10px 0px;
+	height: 145px;
+}
+
+.tuwen h3 
+{
+	font-size: 16px;
+	height: 26px;
+	line-height: 26px;
+}
+
+.tuwen h3 a:hover
+{
+	color: rgb(171, 0, 14);
+}
+
+.red 
+{
+	color: rgb(171, 0, 14);
+}
+
+.tuwen a 
+{
+	color: rgb(0, 0, 0);
+}
+
+.tuwen p 
+{
+	line-height: 20px;
+	color: rgb(153, 153, 153);
+}
+
+.norm
+{
+	margin-right: 0px;
+}
+
+.columns 
+{
+	border-top: none!important;
+	margin-top: 15px;
+}
+
+.column-subshow 
+{
+	position: relative;
+}
+
+.column-subshow-tab 
+{
+	height: 49px;
+	border: 1px solid #d8d8d8;
+	background: #e6e6e6;
+}
+
+.subshow-tab-item 
+{
+	width: 160px;
+	float: left;
+}
+
+.subshow-tab-item a.selected 
+{
+	border-top: 3px solid #ab000d;
+	border-left: 1px solid #d8d8d8;
+	border-right: 1px solid #d8d8d8;
+	width: 140px;
+	height: 48px;
+	color: #ab000d;
+	background: #f8f8f8;
+	line-height: 44px;
+}
+
+.subshow-tab-item a, .subshow-tab-item a:visited 
+{
+	display: block;
+	width: 140px;
+	height: 51px;
+	margin-top: -1px;
+	line-height: 49px;
+	text-align: center;
+	color: #505050;
+	font-size: 19px;
+}
+
+.column-subshow-title 
+{
+	position: relative;
+	width: 100%;
+	height: 70px;
+	margin: 0 auto;
+}
+
+.column-subshow-title h2 
+{
+	height: 30px;
+	padding-top: 20px;
+}
+
+.column-subshow-title h2 
+{
+	font-size: 27px;
+	line-height: 40px;
+	font-weight: bold;
+}
+
+.column-subshow-cont 
+{
+	width: 950px;
+	height: 786px;
+	margin: 0 auto;
+}
+
+.column-subshow-cont 
+{
+	margin-left: 25px;
+	padding-left: 25px;
+	border-left: 1px solid #b5b5b5;
+	position: relative;
+}
+
+.pic_item2 
+{
+	display: inline;
+	float: left;
+	margin: 1px 3px 2px 0px;
+	position: relative;
+	width: 311px;
+	height: 257px;
+	overflow: hidden;
+	border: 1px solid #fff;
+}
+
+.pic_item2:hover
+{
+	border: 1px solid #999;
+	box-shadow: 2px 2px 2px rgba(0,0,0,0.3);
+}
+
+.pic_item2 .pic_img 
+{
+	display: block;
+	width: 311px;
+	height: 207px;
+	overflow: hidden;
+}
+
+.pic_item2 img 
+{
+	display: block;
+	width: 311px;
+	height: 207px;
+}
+
+.pic_item2 .pic_detail 
+{
+	width: 311px;
+	height: 50px;
+	display: block;
+	background: white;
+	cursor: pointer;
+}
+
+.pic_item2 .pic_detail h3 
+{
+	height: 50px;
+	line-height: 50px;
+	padding: 0 16px;
+	font-size: 16px;
+	color: #333;
+	width: 278px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+.pic_item2 .pic_detail h3:hover 
+{
+	color: rgb(171, 0, 14);
+}
+
+.pic_item2 .pic_detail h3 span 
+{
+	color: #999;
+}
+
+a.pics_more 
+{
+	position: absolute;
+	width: 311px;
+	height: 257px;
+	bottom: 0;
+	right: 0;
+	display: block;
+	cursor: pointer;
+	background: url("../../images/picture/new_bg.png") -328px 0;
+	font-size: 32px;
+	text-align: center;
+	line-height: 233px;
+	color: #CCC;
+}
+
+a.pics_more:hover
+{
+	background: url("../../images/picture/new_bg.png") 0 0;
+	color: #fff;
+}
+
+.partners 
+{
+	margin-top: 50px;
+	position: relative;
+	overflow: visible;
+	border-top: 4px solid #d8d8d8;
+	padding-top: 12px;
+	padding-bottom: 20px;
+}
+
+.partners_tit 
+{
+	display: block;
+	position: absolute;
+	width: 137px;
+	height: 30px;
+	left: 0;
+	top: -18px;
+	z-index: 100;
+}
+
+.partners_title 
+{
+	display: block;
+	height: 30px;
+	width: 138px;
+	font-size: 27px;
+	line-height: 30px;
+	font-weight: bold;
+	color: #666;
+	background: #f8f8f8;
+	cursor: default;
+}
+
+.tuwen_p 
+{
+	display: inline;
+	float: left;
+	margin: 24px 24px 0 0;
+}
+
+.tuwen_p .tw_l 
+{
+	float: left;
+}
+
+.tuwen_p .tw_r 
+{
+	margin-left: 300px;
+	background: #FFF;
+	height: 200px;
+	padding: 11px 15px 13px;
+	border-bottom: 1px solid #e9e9e9;
+	border-right: 1px solid #e9e9e9;
+}
+
+.tuwen_p .tw_r h3
+{
+	font-size: 18px;
+	height: 40px;
+	line-height: 40px;
+}
+
+.tuwen_p .tw_r h3 a
+{
+	color: #000;
+}
+
+.tuwen_p .tw_r h3 a:hover
+{
+	color: rgb(171, 0, 14);
+}
+
+.tuwen_p .tw_r p 
+{
+	line-height: 20px;
+	color: #999;
+	font-size: 14px;
+}
+
+.tuwen_p.norm 
+{
+	margin-right: 0;
+}
+

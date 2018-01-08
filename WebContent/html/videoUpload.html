@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>上传视频</title>
+    
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="0">    
+<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+<meta http-equiv="description" content="This is my page">
+
+<link href="/styles/picture/pictureUpload.css" rel="stylesheet" type="text/css">
+<link href="/styles/common.css" rel="stylesheet" type="text/css">
+
+<script type="text/javascript" src="/scripts/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="/scripts/my-select.js"></script>
+<script type="text/javascript" src="/scripts/video/upload_video.js"></script>
+<script type="text/javascript" src="/scripts/common.js"></script>
+</head>
+<body>
+
+ 	<!-- 用于遮住下层的div -->
+    <div class="shield_down_div"></div>
+    <div class="uploading_tip">
+   		<h4 style="font-size: 16px;">您的作品正在上传中，请耐心等候...</h4>
+   		<img alt="等待上传" src="/images/uploading.gif" width="100px" height="100px" class="uploading_image">
+    </div>
+    	
+    <div style="display: block;">
+    	<!-- 回到顶端start -->
+  		<div class="side-btns-wrap">
+  			<div class="side-btns-top">
+  				<a href="javascript:;" class="side-btns-top-btn" title="回到顶端"></a>
+  			</div>
+  		</div>
+  		<!-- 回到顶端end -->
+  		
+  		<div class="wrap">
+  			<!-- 顶部start -->
+  			<div class="header">
+  				<div class="logo">
+  					<img src="/images/toplogo2.png" width="180" height="63">
+  				</div>
+  			</div>
+  			<!-- 顶部end -->
+  			<!-- 上传作品start -->
+  			<form action="uploadVideoAction.action" class="upload-form" method="post" enctype="multipart/form-data">
+	  			<div class="upload-wrap up_active">
+	  				<div class="up_top cysel">
+	  					<p id="upload-style" class="product-style">
+	  						作品类型：
+	  						<select id="product-video-style" style="display: none;" name="video.label">
+	  							<option value="Javascript">Javascript</option>
+	  							<option value="HTML">HTML</option>
+	  							<option value="CSS">CSS</option>
+	  							<option value="ES6">ES6</option>
+	  							<option value="Git">Git</option>
+	  						</select>
+	  					</p>
+	  					
+	  					<p class="product-style">
+	  						视频主题：
+	  						<input type="text" class="input-text" style="margin-left: 23px;" name="video.title" id="video-title" 
+	  					 	     placeholder="请输入视频主题" />
+	  						<span style="margin-left: 10px;">*必填项</span>
+	  						<span class="error-tip fill-info" style="display: none; color: red;">标红处为必填项</span>
+	  					</p>
+	  					<p class="product-style">
+	  						<span style="position: relative; width: 20px;">
+	  							视频描述：
+	  						</span>
+	  						<span style="position: relative; left: -82px; top: 30px;">（*必填项）</span>
+	  						<textarea rows="8" cols="120" name="video.description" id="video-description" 
+	  						 class="spe-textarea pic-list-introduce"></textarea>
+	  					</p>
+	  					<!-- <p class="product-style">
+	  						剪辑时间(秒)：
+	  						<input type="text" class="input-text" style="margin-left: 0px;" name="cliptime" id="cliptime" 
+	  					 	       placeholder="请输入整数"/>
+	  						<span style="margin-left: 10px;">*必填项</span>
+	  						<span id="error-time" style="margin-left: 10px; color: red; display: none;">请输入正确的时间</span>
+	  						<span style="display: block; color: blue;">
+	  							提示：由于要为每个视频生成一张缩略图，这张缩略图是在视频的某一秒截取一张图片，请作者确定好要将哪一秒的图片作为缩略图后在上方的输入框中输入数字，以秒数为单位
+	  						</span>
+	  					</p> -->
+	  					<div class="psre fl">
+	  						<input type="hidden" id="total-video-num" value="0"/>
+	  						<span class="error-tip upload-video-tip" style="margin-left: 0px;"></span>
+	  						<br/>
+	  						<input type="file" name="picture" style="margin-top: 10px;"/>
+	  						<br/>
+	  						<p style="margin-top: 10px;">
+	  							<span class="single-title">
+		  							<span style="color: blue">提示：此处上传的图片将作为视频展示时的图片</span>
+		  						</span>
+	  						</p>
+	  						
+	  					</div>
+	  					<div class="psre fl">
+	  						<input type="hidden" id="total-video-num" value="0"/>
+	  						<span class="error-tip upload-video-tip" style="margin-left: 0px;"></span>
+	  						<br/>
+	  						<input type="file" name="videos" onchange="doChoose()" style="margin-top: 10px;"/>
+	  						<br/>
+	  						<p style="margin-top: 10px;">
+	  							<span class="single-title">
+		  							<span style="color: blue">提示：为方便视频的正常播放，请大家上传MP4格式的视频，如果不是MP4格式请自行下载视频格式转换工具进行转换</span>
+		  						</span>
+	  						</p>
+	  						
+	  					</div>
+	  					<div class="up-active-btn">
+	  						<input type="submit" value="提交" class="submit-btn" onclick="return showUploadingGif();"/>
+	  					</div>
+	  				</div>
+	  			</div>
+  			</form>
+  			<!-- 上传作品end -->
+    	</div>
+    	
+    	<!-- 底层div -->
+  		<div class="footer">
+  			<p>Copyright © 2015 GXU, All Rights Reserved By Kingx</p>
+  			<p>广西大学红树林网络文化工作室</p>
+  		</div>
+     </div>
+
+</body>
+</html>

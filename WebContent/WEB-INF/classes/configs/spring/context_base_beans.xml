@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xmlns:aop="http://www.springframework.org/schema/aop"
+     xmlns:tx="http://www.springframework.org/schema/tx"
+     xsi:schemaLocation="http://www.springframework.org/schema/beans
+         http://www.springframework.org/schema/beans/spring-beans.xsd
+         http://www.springframework.org/schema/tx
+         http://www.springframework.org/schema/tx/spring-tx.xsd
+         http://www.springframework.org/schema/aop
+         http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+        <property name="driverClassName">
+        	<value>com.mysql.jdbc.Driver</value>
+        </property>
+        <property name="url">
+            <value>jdbc:mysql://127.0.0.1:3306/share?characterEncoding=UTF-8</value>
+        </property>
+        <property name="username"><value>root</value></property>
+        <property name="password"><value>6230362weiliop</value></property>
+    </bean>
+
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+        <property name="dataSource"><ref bean="dataSource" /></property>
+         <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.connection.SetBigStringTryClob">true</prop>
+                <prop key="hibernate.jdbc.use_streams_for_binary">true</prop>
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+                <prop key="hibernate.autoReconnect">true</prop>
+                <prop key="hibernate.show_sql">true</prop>
+            </props>
+        </property>
+		<property name="mappingResources">
+			<list>
+				<value>yiban/share/pojo/ComHeart.hbm.xml</value>
+				<value>yiban/share/pojo/Comments.hbm.xml</value>
+				<value>yiban/share/pojo/Heart.hbm.xml</value>
+				<value>yiban/share/pojo/Reply.hbm.xml</value>
+				<value>yiban/share/pojo/Video.hbm.xml</value>
+			</list>
+		</property>
+        
+    </bean>
+	<!-- 注册一个jdbc数据源事务管理器 -->
+	<bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+        <property name="sessionFactory"><ref bean="sessionFactory" /></property>
+    </bean>
+
+	
+	
+	<bean id="baseDao" class="yiban.share.dao.impl.BaseDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+</beans>

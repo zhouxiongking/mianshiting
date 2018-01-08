@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>视频分类</title>
+    
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="0">    
+<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+<meta http-equiv="description" content="This is my page">
+
+<link href="/styles/video/videoMain.css" rel="stylesheet" type="text/css">
+<link href="/styles/categoryCommon.css" rel="stylesheet" type="text/css">
+<link href="/styles/common.css" rel="stylesheet" type="text/css">
+
+<script type="text/javascript" src="/scripts/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="/scripts/common.js"></script>
+</head>
+<body>
+    <div style="display: block;">
+    	<!-- 回到顶端start -->
+  		<div class="side-btns-wrap">
+  			<div class="side-btns-top">
+  				<a href="javascript:;" class="side-btns-top-btn" title="回到顶端"></a>
+  			</div>
+  		</div>
+  		<!-- 回到顶端end -->
+  		
+  		<div class="wrap">
+  			<!-- 顶部 -->
+  			<div class="header" style="margin-bottom: 0px;">
+  				<div class="logo">
+  					<img src="/images/toplogo2.png" width="180" height="63">
+  				</div>
+  			</div>	
+  			<div class="main-outerWrap">
+  				<div class="main-nav-wrap">
+ 					<ul class="clearfix">
+						<li style="width: 199px;">
+							<a class="wit" href="/doClassifyVideoAction.action?category=校园新闻">校园新闻</a>
+						</li>
+						<li style="width: 199px;">
+							<a class="mortal" href="/doClassifyVideoAction.action?category=时政焦点">时政焦点</a>
+						</li>						
+						<li style="width: 199px;">
+							<a class="photog" href="/doClassifyVideoAction.action?category=校园生活">校园生活</a>
+						</li>
+						<li style="width: 199px;">
+							<a class="organize" href="/doClassifyVideoAction.action?category=学生组织">学生组织</a>
+						</li>
+						<li style="width: 199px;">
+							<a class="red" href="/doClassifyVideoAction.action?category=微电影">微 电 影</a>
+						</li>
+					</ul>
+  				</div>
+  			</div>
+  			<!-- 标题栏end -->
+  			
+  			<div class="VDF_main">
+  				<div class="VDC_title clearfix">
+					<ul class="VDC_tab1">
+						<li>
+							<a href="javascript:;" class="VDC_lkA cur">
+								<s:property value="category"/>
+							</a>
+						</li>
+					</ul>
+				</div>
+	  			<div class="VDM_todayhot">
+					<ul class="clearfix">
+					    <s:iterator value="videoList" id="video">
+					    	<li class="video_box">
+								<div class="VDC_video">
+									<img class="videoimg" title="<s:property value="#video.title"/>" alt="<s:property value="#video.title"/>" 
+										width="236" height="133" src="<s:property value="#video.picUrl"/>" style="visibility: visible; display: block;" />
+									<div class="videotxt">
+										<h2 class="h2size VDC_txtB"><s:property value="#video.title"/></h2>
+									</div>
+									<a href="/doShowVideoAction.action?videoId=<s:property value="#video.id"/>"
+									   target="_blank" class="VDC_video_a" title="<s:property value="#video.title"/>">
+									</a>
+								</div>
+							</li>
+					    </s:iterator>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!-- 底层div -->
+  		<div class="footer">
+  			<p>广西大学易班发展中心、广电中心、校园电视台</p>
+  			<p>Copyright © 2015 GXU, All Rights Reserved By Kingx</p>
+  			<p>广西大学红树林网络文化工作室技术支持</p>
+  		</div>
+	</div>		
+
+  </body>
+</html>

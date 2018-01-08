@@ -1,0 +1,223 @@
+.VDF_focus
+{
+	width: 1000px;
+    height: 490px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #e3e3e3;
+}
+
+.vdm_focus 
+{
+    height: 432px;
+    position: relative;
+    background-position: center top;
+    background-repeat: no-repeat;
+}
+
+.vdm_focus .focusbg_img 
+{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 432px;
+    overflow: hidden;
+}
+
+.vdm_focus .focusbg_img .focusbg_imgul 
+{
+    width: 100%;
+    position: relative;
+    height: 100%;
+}
+
+.vdm_focus .focusbg_img .focusbg_imgul li 
+{
+    float: left;
+    height: 100%;
+    position: relative;
+    width: 100%;
+}
+
+.numList 
+{
+	margin-top: 10px;
+	height: 35px;
+	text-align: center;
+}
+
+.numList span.selected 
+{
+	background: url("/images/photo_share_0809_dot_f.gif") no-repeat;
+}
+
+.numList span 
+{
+	display: inline-block;
+	width: 18px;
+	height: 18px;
+	margin-right: 5px;
+	cursor: pointer;
+	background: url("/images/photo_share_0809_dot.gif") no-repeat;
+	margin-top: 14px;
+}
+
+
+.VDF_main
+{
+    margin: 0 auto;
+    width: 1004px;
+    padding-bottom: 30px;
+}
+
+.VDC_title
+{
+    _height: 24px;
+    margin-bottom: 14px;
+}
+
+.clearfix 
+{
+    zoom: 1;
+}
+
+.VDC_title .VDC_tab1 
+{
+    font-size: 22px;
+    font-weight: normal;
+    float: left;
+    padding-right: 20px;
+}
+
+.VDC_title .VDC_tab1 li 
+{
+    float: left;
+}
+
+li 
+{
+    list-style: none;
+}
+
+.VDC_title .VDC_tab1 .cur 
+{
+    color: #333;
+}
+
+.VDM_todayhot 
+{
+    margin: -11px 0 0 -13px;
+    _margin-left: -40px;
+}
+
+.VDM_todayhot ul
+{
+    position: relative;
+    overflow: hidden;
+}
+
+.VDM_todayhot .video_box 
+{
+    float: left;
+    margin-left: 15px;
+    margin-top: 11px;
+}
+
+.VDM_todayhot .VDC_video 
+{
+    width: 236px;
+    height: 133px;
+}
+
+.VDC_video 
+{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.VDC_video:hover
+{
+	box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.4);
+}
+
+.VDC_video .videoimg 
+{
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.VDC_video .videotxt 
+{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    _bottom: -1px;
+    overflow: hidden;
+    width: 100%;
+    background: url("/images/opacity_bg.png") repeat-x;
+    _background: #000;
+    padding-top: 6px;
+    min-height: 27px;
+}
+
+.VDC_video .videotxt h2 
+{
+    width: 100%;
+    padding: 6px 0 3px 0px;
+    font-size: 15px;
+    text-indent: 6px;
+    font-weight: normal;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.VDC_txtB 
+{
+    color: #fff;
+}
+
+.VDC_video_a 
+{
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: url(about:blank);
+    width: 100%;
+    height: 100%;
+}
+
+.last
+{
+	border-bottom: 1px solid #c3c3c3;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

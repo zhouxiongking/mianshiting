@@ -1,0 +1,78 @@
+.main-outerWrap 
+{
+	padding: 25px 0 30px 0;
+}
+
+.main-nav-wrap 
+{
+	margin: 0;
+	width: 1000px;
+	height: 18px;
+	overflow: hidden;
+	position: relative;
+}
+
+.udv-clearfix:after, .clearfix:after 
+{
+	content: "\0020";
+	display: block;
+	height: 0;
+	clear: both;
+}
+
+.main-nav-wrap ul 
+{
+	margin-bottom: 0;
+}
+
+.udv-clearfix, .clearfix 
+{
+	zoom: 1;
+}
+
+ol, ul 
+{
+	list-style: none;
+}
+
+.main-nav-wrap li 
+{
+	width: 160px;
+}
+
+.main-nav-wrap li 
+{
+	padding: 0 0 0 20px;
+	height: 18px;
+	line-height: 18px;
+	overflow: hidden;
+	font-size: 16px;
+	color: #333;
+	font-family: "Microsoft Yahei",SimHei;
+	border-right: 1px solid #B2B2B2;
+	float: left;
+	display: inline;
+}
+
+.main-nav-wrap li 
+{
+	width: 160px;
+	padding-left: 0;
+	text-align: center;
+}
+
+.main-nav-wrap li:last-child
+{
+	border-right: none;
+}
+
+.main-nav-wrap a:link, .main-nav-wrap a:visited 
+{
+	color: #333;
+	text-decoration: none;
+}
+
+.main-nav-wrap a:hover
+{
+	color: #ab000e !important;
+}
