@@ -27,6 +27,12 @@ public class VideoAction extends ActionSupport
 	private String videosFileName;
 	// 上传的视频文件类型
 	private String videosContentType;
+	// 上传的图片文件
+	private File picture;
+	// 上传的图片文件名
+	private String pictureFileName;
+	// 上传的图片文件类型
+	private String pictureContentType;
 	
 	private String videoId;
 	
@@ -47,13 +53,17 @@ public class VideoAction extends ActionSupport
 	 */
 	public String uploadVideo() throws Exception
 	{
-		//1.判断上传的视频的格式
+		// 1.判断上传的视频的格式
 		String[] type = this.videosFileName.split("\\.");
 		String fileType = type[type.length - 1];
-		
-		//3.将视频文件写到指定的位置
+		// 2.上传图片后缀名
+		String[] picTypes = this.pictureFileName.split("\\.");
+		String picType = picTypes[picTypes.length - 1];
+		// 3.将视频文件写到指定的位置
 		FileInputStream fis = null;
 		FileOutputStream fos = null;
+		FileInputStream picfis = null;
+		FileOutputStream picfos = null;
 		String path = null;
 		String imgPath = null;
 		String dbPath = null;
@@ -62,10 +72,11 @@ public class VideoAction extends ActionSupport
 		{
 			String uniqe = KeyUtil.getNewKey();
 			String realPath = ServletActionContext.getServletContext().getRealPath("/");
-			dbPath = "upload/video/" + uniqe + ".mov";
-			dbImgPath = "upload/video/thumbnail/" + KeyUtil.getNewKey() + ".jpg";
+			dbPath = "upload/video/" + uniqe + "." + fileType;
+			dbImgPath = "upload/video/thumbnail/" + KeyUtil.getNewKey() + "." + picType;
 			path = realPath + dbPath; 
 			imgPath = realPath + dbImgPath;
+			// 视频保存至指定文件夹
 			fis = new FileInputStream(videos);
 			fos = new FileOutputStream(new File(path));
 			byte[] buffer = new byte[1024];
@@ -73,6 +84,15 @@ public class VideoAction extends ActionSupport
             while ((len = fis.read(buffer)) > 0) 
             {
                 fos.write(buffer, 0, len);
+            }
+            // 图片保存至指定文件夹
+            picfis = new FileInputStream(picture);
+			picfos = new FileOutputStream(new File(imgPath));
+			byte[] picBuffer = new byte[1024];
+            int picLen = 0;
+            while ((picLen = picfis.read(picBuffer)) > 0) 
+            {
+            	picfos.write(picBuffer, 0, picLen);
             }
 		}
 		catch (Exception e)
@@ -83,6 +103,8 @@ public class VideoAction extends ActionSupport
 		{
 			fis.close();
 			fos.close();
+			picfis.close();
+			picfos.close();
 		}
 		
 		//5.写入数据库
@@ -256,6 +278,30 @@ public class VideoAction extends ActionSupport
 	public void setPosition(String position)
 	{
 		this.position = position;
+	}
+
+	public File getPicture() {
+		return picture;
+	}
+
+	public void setPicture(File picture) {
+		this.picture = picture;
+	}
+
+	public String getPictureFileName() {
+		return pictureFileName;
+	}
+
+	public void setPictureFileName(String pictureFileName) {
+		this.pictureFileName = pictureFileName;
+	}
+
+	public String getPictureContentType() {
+		return pictureContentType;
+	}
+
+	public void setPictureContentType(String pictureContentType) {
+		this.pictureContentType = pictureContentType;
 	}
 	
 }

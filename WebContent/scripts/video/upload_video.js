@@ -14,8 +14,6 @@ function showUploadingGif()
 	var title = $("#video-title").val();
 	//视频描述
 	var description = $("#video-description").val();
-	//视频剪辑时间
-	var time = $("#cliptime").val();
 	var reg = new RegExp("^[0-9]*$");
 	//上传视频总数
 	var totalNum = parseInt($("#total-video-num").val());
@@ -41,23 +39,6 @@ function showUploadingGif()
 		$("#video-description").css("border", "1px solid #ccc");
 	}
 	
-	if(!time || time.trim() == "")
-	{
-		$(".fill-info").show();
-		$("#cliptime").css("border", "1px solid red");
-	}
-	else if(!reg.test(time))
-	{
-		$("#error-time").show();
-		$("#cliptime").css("border", "1px solid red");
-	}
-	else
-	{
-		$(".fill-info").hide();
-		$("#error-time").hide();
-		$("#cliptime").css("border", "1px solid #ccc");
-	}
-	
 	if(totalNum == 0)
 	{
 		$(".upload-video-tip").text("请上传视频");
@@ -68,7 +49,7 @@ function showUploadingGif()
 	}
 	
 	if(title && title.trim().length > 0 && description && description.trim().length > 0 
-			 && time && time.trim().length > 0 && reg.test(time) && totalNum > 0)
+	   && totalNum > 0)
 	{
 		$(".shield_down_div").show();
 		$(".uploading_tip").show();
