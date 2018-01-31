@@ -1,5 +1,3 @@
-<!--
-
 //选择地区的二级分类(非通用调用)
 function selNext(oj, v)
 {

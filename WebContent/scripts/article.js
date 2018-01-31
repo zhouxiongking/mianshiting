@@ -35,13 +35,23 @@ function getPreNextArticle() {
  * @param nextArticle
  */
 function renderPreNextArticle(preArticle, nextArticle) {
-	var pre = $('.first');
-	var next = $('.last');
+	var pre = $('#pre');
+	var next = $('#next');
+	if(preArticle && preArticle.id) {
+		pre.text(preArticle.title);
+		pre.attr('href', '/articles/?articleId=' + preArticle.id);
+	} else {
+		pre.text('没有了');
+		pre.attr('href', 'javascript:;');
+	}
 	
-	pre.text(preArticle.title);
-	$('a', pre).attr('href', '/articles/?articleId=' + preArticle.id);
-	next.text(nextArticle.title);
-	$('a', next).attr('href', '/articles/?articleId=' + nextArticle.id);
+	if(nextArticle && nextArticle.id) {
+		next.text(nextArticle.title);
+		next.attr('href', '/articles/?articleId=' + nextArticle.id);
+	} else {
+		next.text('没有了');
+		next.attr('href', 'javascript:;');
+	}
 }
 
 /**

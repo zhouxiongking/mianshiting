@@ -6,53 +6,30 @@ $(function(){
 	// 查看更多
 	bindGetMore();
 	
-	// 搜索按钮事件
-	bindSearchBtn();
+	// 播放视频
+	videoPlay();
 	
-	// 搜索请求
-	searchKeyword();
+	// 关闭视频div
+	closeVideo();
 });
 
 /**
- * 根据关键字搜索文章
+ * 关闭视频div
  */
-function searchKeyword() {
-	$("#search-btn").click(function() {
-		var keyword = $("#search-input").val();
-		if(keyword && keyword.trim().length) {
-			sendRequest(keyword, 1);
-		}
+function closeVideo() {
+	$('.shield_down_div').click(function() {
+		$('.video-play').hide();
+		$('.shield_down_div').hide();
 	});
 }
 
 /**
- * 发送请求，根据关键字查询文章
- * @param keyword
- * @param pageNo
+ * 点击播放视频
  */
-function sendRequest(keyword, pageNo, type) {
-	$.ajax({
-		url: '/article-json/loadArticlesByKeyword',
-		data: {
-			keyword: keyword,
-			pageNo: pageNo
-		},
-		dataType: 'json',
-		success: function(result){
-			updatePageNo(result.articleList, pageNo);
-			// 渲染结果
-			renderPage(result.articleList, type);
-		}
-	}); 
-}
-
-/**
- * 搜索按钮事件
- */
-function bindSearchBtn() {
-	$('.toggle-search').click(function() {
-		$('i', this).toggleClass('fa-search fa-remove');
-		$('.site-search').toggleClass('opacity-0 opacity-1');
+function videoPlay() {
+	$('#slide1_s0, .play').click(function() {
+		$('.shield_down_div').show();
+		$('.video-play').show();
 	});
 }
 

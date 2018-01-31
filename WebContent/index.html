@@ -10,13 +10,40 @@
 <link rel="icon" href="/favicon.ico" type="image/x-icon" />
 <link rel="stylesheet" type="text/css" media="all" href="/html5_blue/css/style.css" />
 <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<link href="/html5_blue/css/video-js.css" rel="stylesheet">
 <script type="text/javascript" src="/html5_blue/js/jquery.min.js"></script>
 <script type="text/javascript" src="/html5_blue/js/responsiveslides.min.js"></script>
 <script type="text/javascript" src="/scripts/index.js"></script>
 <script type="text/javascript" src="/scripts/common.js"></script>
 <script type="text/javascript" src="/html5_blue/js/yycm.js"></script>
+<script type="text/javascript" src="/html5_blue/js/video.min.js"></script>
+<script type="text/javascript" src="/html5_blue/js/videojs-ie8.min.js"></script>
 </head>
 <body>
+
+<!-- 用于遮住下层的div -->
+<div class="shield_down_div"></div>
+<div class="video-play">
+	<video id="video" class="video-js vjs-default-skin vjs-big-play-centered" controls preload="none" width="1000" height="600"
+      data-setup="{}">
+	    <source src="/html5_blue/video/test.mp4" type='video/mp4' />
+	    <source src="" type='video/webm' />
+	    <source src="" type='video/ogg' />
+	    <!-- Tracks need an ending tag thanks to IE9 -->
+	    <track kind="captions" src="" srclang="en" label="English"></track>
+	    <!-- Tracks need an ending tag thanks to IE9 -->
+	    <track kind="subtitles" src="" srclang="en" label="English"></track>
+	</video>
+</div>
+
+<!-- 回到顶端start -->
+<div class="side-btns-wrap">
+	<div class="side-btns-top">
+		<a href="javascript:;" class="side-btns-top-btn" title="回到顶端"></a>
+	</div>
+</div>
+<!-- 回到顶端end --> 
+
 <div class="top"> <span href="#" class="totop" style="display: block;"></span>
   <div class="wrap page-header">
     <h1 style="margin-top: 20px;"><a href="/" title="首页"><img src="./html5_blue/images/new-logo.png" width="140px" height="58px" border="0" alt=""></a></h1>
@@ -60,13 +87,15 @@
     <div class="screen">
       <div class="slide_container">
         <ul class="rslides slide slide1" id="slider">
-            <li id="slide1_s0" class="slide1_on" style="display: block; float: left; position: relative; opacity: 1; z-index: 2; transition: opacity 500ms ease-in-out;"> <a href="http://www.adminbuy.cn/" target="_blank"><img src="./html5_blue/images/1-1F5302015450-L.jpg"></a> </li>
-			<li id="slide1_s1" style="float: none; position: absolute; opacity: 0; z-index: 1; display: list-item; transition: opacity 500ms ease-in-out;" class=""> <a href="http://fang.adminbuy.cn/" target="_blank"><img src="./html5_blue/images/1-1F5302015280-L.jpg"></a> </li>
-			<li id="slide1_s2" style="float: none; position: absolute; opacity: 0; z-index: 1; display: list-item; transition: opacity 500ms ease-in-out;" class=""> <a href="http://sc.adminbuy.cn/" target="_blank"><img src="./html5_blue/images/1-1F5302015060-L.jpg"></a> </li>
-			<li id="slide1_s3" style="float: none; position: absolute; opacity: 0; z-index: 1; display: list-item; transition: opacity 500ms ease-in-out;" class=""> <a href="http://www.adminbuy.cn/" target="_blank"><img src="./html5_blue/images/1-1F5302013090-L.jpg"></a> </li>
+            <li id="slide1_s0" class="slide1_on carousel"> 
+            	<a href="javascript:;" target="_blank"><img src="/html5_blue/images/welcome.png" /></a> 
+            </li>
         </ul>
-        <a href="http://demo425.adminbuy.cn/#" class="slide_nav slide1_nav prev" style="display: inline; opacity: 0.0736438;">Previous</a>
-        <a href="http://demo425.adminbuy.cn/#" class="slide_nav slide1_nav next" style="display: inline; opacity: 0.0736438;">Next</a>
+        <div class="play">
+        	<img src="/html5_blue/images/play.jpeg" width="50px"/>
+        </div>
+       <!-- <a href="javascript:;" class="slide_nav slide1_nav prev" style="display: inline; opacity: 0.0736438;">Previous</a>
+        <a href="javascript:;" class="slide_nav slide1_nav next" style="display: inline; opacity: 0.0736438;">Next</a> -->
       </div>
     </div>
     <div class="articles"></div>

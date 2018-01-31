@@ -14,7 +14,85 @@ $(function() {
 	// 获取热门标签
 	getHotLabels();
 	
+	// 搜索按钮事件
+	bindSearchBtn();
+	
+	// 搜索请求
+	searchKeyword();
+	
+	// 页面滚动后，显示或隐藏回到顶端的div
+	showToTop();
+	
+	// 回到顶端
+	scrollToTop();
+	
 });
+
+/**
+ * 页面滚动后，显示或隐藏回到顶端的div
+ */
+function showToTop() {
+	$(window).scroll(function() {
+		var scrollTop = $(this).scrollTop();
+		if(scrollTop >= 200) {
+			$(".side-btns-wrap").show();
+		} else{
+			$(".side-btns-wrap").hide();	
+		}
+	});
+}
+
+/**
+ * 回到顶端
+ */
+function scrollToTop() {
+	$(".side-btns-top-btn").click(function() {
+		$("html, body").animate({"scrollTop": 0}, 500);
+	});
+}
+
+/**
+ * 根据关键字搜索文章
+ */
+function searchKeyword() {
+	$("#search-btn").click(function() {
+		var keyword = $("#search-input").val();
+		if(keyword && keyword.trim().length) {
+			sendRequest(keyword, 1);
+		}
+	});
+}
+
+/**
+ * 发送请求，根据关键字查询文章
+ * @param keyword
+ * @param pageNo
+ */
+function sendRequest(keyword, pageNo, type) {
+	$.ajax({
+		url: '/article-json/loadArticlesByKeyword',
+		data: {
+			keyword: keyword,
+			pageNo: pageNo
+		},
+		dataType: 'json',
+		success: function(result){
+			updatePageNo(result.articleList, pageNo);
+			// 渲染结果
+			renderPage(result.articleList, type);
+		}
+	}); 
+}
+
+/**
+ * 搜索按钮事件
+ */
+function bindSearchBtn() {
+	$('.toggle-search').click(function() {
+		$('i', this).toggleClass('fa-search fa-remove');
+		$('.site-search').toggleClass('opacity-0 opacity-1');
+	});
+}
 
 /**
  * 获取热门标签

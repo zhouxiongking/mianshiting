@@ -11,6 +11,10 @@ article, aside, blockquote, body, button, dd, details, div, dl, dt, fieldset, fi
     padding: 0;
 }
 
+.nav .wrap .navbar-header .toggle-search{
+	box-sizing: content-box;
+}
+
 .con-article {
 	background-color: #fff;
 	border: 1px solid #ececec;
@@ -258,4 +262,10 @@ a {
     color: #999;
     font-size: 14px;
     vertical-align: middle;
+}
+
+@media (max-width: 768px) {
+	.navbar-header {
+		display: none;
+	}
 }
