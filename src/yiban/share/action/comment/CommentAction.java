@@ -40,15 +40,14 @@ public class CommentAction extends ActionSupport
 		Date now = Calendar.getInstance().getTime();
 		DateFormat dateFormat = DateFormat.getDateTimeInstance();
 		String time = dateFormat.format(now);
-		this.comment.setId(KeyUtil.getNewKey());
 		this.comment.setComtime(time);
 		this.comment.setUserid("1");
 		this.comment.setCusername("kingx");
 		this.commentService.saveComment(comment);
 		//保存进数据库后，重新检索出前十条评论内容以更新页面上的内容
 		String hql = "from Comments where picid = ? order by comtime desc";
-		this.comTotal = this.commentService.loadByHql(hql, comment.getPicid()).size();
-		this.comList = this.commentService.listAllByPage(hql, 1, 10, comment.getPicid());
+		this.comTotal = this.commentService.loadByHql(hql, comment.getVideoid()).size();
+		this.comList = this.commentService.listAllByPage(hql, 1, 10, comment.getVideoid());
 	
 		return SUCCESS;
 	}

@@ -12,7 +12,7 @@ public class ComHeart  implements java.io.Serializable {
 
     // Fields    
 
-     private String id;
+     private int id;
      private String userid;
      private String commentid;
 
@@ -24,12 +24,12 @@ public class ComHeart  implements java.io.Serializable {
     }
 
 	/** minimal constructor */
-    public ComHeart(String id) {
+    public ComHeart(int id) {
         this.id = id;
     }
     
     /** full constructor */
-    public ComHeart(String id, String userid, String commentid) {
+    public ComHeart(int id, String userid, String commentid) {
         this.id = id;
         this.userid = userid;
         this.commentid = commentid;
@@ -38,19 +38,19 @@ public class ComHeart  implements java.io.Serializable {
    
     // Property accessors
 
-    public String getId() {
-        return this.id;
-    }
-    
-    public void setId(String id) {
-        this.id = id;
-    }
+    public int getId() {
+		return id;
+	}
 
-    public String getUserid() {
+	public void setId(int id) {
+		this.id = id;
+	}
+	
+	public String getUserid() {
         return this.userid;
     }
-    
-    public void setUserid(String userid) {
+
+	public void setUserid(String userid) {
         this.userid = userid;
     }
 

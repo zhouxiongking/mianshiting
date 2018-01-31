@@ -15,7 +15,7 @@
 	<property name="baseDao" ref="baseDao"></property>
 </bean>
 
-<bean id="videoService" class="yiban.share.service.video.impl.VideoServiceImpl">
+<bean id="articleService" class="yiban.share.service.article.impl.ArticleServiceImpl">
 	<property name="baseDao" ref="baseDao"></property>
 </bean>
 

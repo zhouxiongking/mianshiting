@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	
+	<package name="article" extends="struts-default" namespace="/">
+		
+		<action name="uploadArticleAction" class="articleAction" method="uploadArticle">
+			<result name="success">/manage/success.html</result>
+			<result name="error">/manage/upload.html</result>
+		</action>
+		
+	</package>
+
+	<package name="article-json" extends="json-default" namespace="/article-json">
+	
+		<action name="*" class="articleAction" method="{1}">
+			<result type="json"></result>
+		</action>
+		
+	</package>
+	
+</struts>

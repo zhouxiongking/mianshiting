@@ -6,9 +6,9 @@
 -->
 <hibernate-mapping>
     <class name="yiban.share.pojo.ComHeart" table="comheart" catalog="share">
-        <id name="id" type="string">
-            <column name="id" length="32" />
-            <generator class="assigned"></generator>
+        <id name="id" type="integer">
+            <column name="id" />
+            <generator class="increment"></generator>
         </id>
         <property name="userid" type="string">
             <column name="userid" length="32" />

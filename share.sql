@@ -8,7 +8,7 @@
 /*==============================================================*/
 create table comheart 
 (
-   id                   varchar(32)                    not null,
+   id                   int                            not null  AUTO_INCREMENT,
    userid               varchar(32)                    null,
    commentid            varchar(32)                    null,
    constraint PK_COMHEART primary key clustered (id)
@@ -19,10 +19,10 @@ create table comheart
 /*==============================================================*/
 create table comments 
 (
-   id                   varchar(32)                    not null,
+   id                   int                            not null AUTO_INCREMENT,
    userid               varchar(32)                    null,
    cusername            varchar(20)                    null,
-   picid                varchar(32)                    null,
+   videoid              varchar(32)                  null,
    content              varchar(500)                   null,
    comtime              varchar(20)                    null,
    constraint PK_COMMENTS primary key clustered (id)
@@ -33,7 +33,7 @@ create table comments
 /*==============================================================*/
 create table heart 
 (
-   id                   varchar(32)                    not null,
+   id                   int                            not null AUTO_INCREMENT,
    userid               varchar(32)                    null,
    picid                varchar(32)                    null,
    constraint PK_HEART primary key clustered (id)
@@ -44,7 +44,7 @@ create table heart
 /*==============================================================*/
 create table picture 
 (
-   id                   varchar(32)                    not null,
+   id                  	int                            not null AUTO_INCREMENT,
    userid               varchar(32)                    null,
    username             varchar(20)                    null,
    category             varchar(20)                    null,
@@ -66,7 +66,7 @@ create table picture
 /*==============================================================*/
 create table reply 
 (
-   id                   varchar(32)                    null,
+   id                   int                            null AUTO_INCREMENT,
    fromid               varchar(32)                    null,
    commentid            varchar(32)                    null,
    toid                 varchar(32)                    null,
@@ -79,7 +79,7 @@ create table reply
 /*==============================================================*/
 create table users 
 (
-   id                   varchar(32)                    not null,
+   id                   int                            not null AUTO_INCREMENT,
    username             varchar(20)                    null,
    password             varchar(20)                    null,
    qq                   varchar(12)                    null,
@@ -96,13 +96,13 @@ create table users
 /*==============================================================*/
 /* Table: "video"                                                */
 /*==============================================================*/
-create table video 
+create table article 
 (
-   id                   varchar(32)                    not null,
-   name                 varchar(20)                    null,
-   title                varchar(30)                    null,
+   id                   int                            not null AUTO_INCREMENT,
+   description          varchar(200)                    null,
+   title                varchar(50)                    null,
    label                varchar(20)                    null,
-   description          varchar(300)                   null,
+   content              text                           null,
    clicks               int                            null,
    uploadtime           varchar(20)                    null,
    url                  varchar(100)                   null,
@@ -119,7 +119,7 @@ create table video
 /*==============================================================*/
 create table audio 
 (
-   id                   varchar(32)                    not null,
+   id                   int                            not null AUTO_INCREMENT,
    title                varchar(32)                    null,
    uploadtime           varchar(20)                    null,
    totaltime            int                            null,
@@ -128,4 +128,13 @@ create table audio
    field                varchar(100)                   null,
    url                  varchar(200)                   null,
    constraint PK_AUDIO primary key clustered (id)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/* 阅读量 */
+create table reading
+(
+   id                   int                            not null AUTO_INCREMENT,
+   article_id           int                            not null,
+   count                int                            not null,
+   constraint PK_READING primary key clustered (id)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;

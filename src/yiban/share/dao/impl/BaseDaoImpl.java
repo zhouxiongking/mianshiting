@@ -124,4 +124,60 @@ public class BaseDaoImpl extends HibernateDaoSupport implements BaseDao
 		});
 		return list;
 	}
+	
+	@Override
+	public List listPageBySQL(String sql, int pageNo, int pageSize, final Object... parameters) {
+		final int pNo = pageNo;
+		final int pSize = pageSize;
+		final String hql1 = sql;
+		List list = getHibernateTemplate().executeFind(new HibernateCallback()
+		{
+			@Override
+			public Object doInHibernate(Session arg0)
+					throws HibernateException, SQLException
+			{
+				Query query = arg0.createSQLQuery(hql1);
+				if(parameters != null && parameters.length > 0)
+				{
+					for(int i = 0; i < parameters.length; i++)
+					{
+						query.setParameter(i, parameters[i]);
+					}
+				}
+				query.setMaxResults(pSize);
+				query.setFirstResult((pNo - 1) * pSize);
+				List result = query.list();
+				if(!Hibernate.isInitialized(result))
+				{
+					Hibernate.initialize(result);
+				}
+				return result;
+			}
+		});
+		return list;
+	}
+	
+	@Override
+	public List listBySQL(String sql, final Object... parameters) {
+		final String hql1 = sql;
+		List list = getHibernateTemplate().executeFind(new HibernateCallback()
+		{
+			public Object doInHibernate(Session arg0) throws HibernateException,
+					SQLException
+			{
+				Query query = arg0.createSQLQuery(hql1);
+				//注入?的值
+				if(parameters != null && parameters.length > 0)
+				{
+					for(int i = 0; i < parameters.length; i++)
+					{
+						query.setParameter(i, parameters[i]);
+					}
+				}
+				
+				return query.list();
+			}
+		});
+		return list;
+	}
 }

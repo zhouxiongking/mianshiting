@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>上传视频</title>
+    
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="0">    
+<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+<meta http-equiv="description" content="This is my page">
+
+<link href="/manage/styles/pictureUpload.css" rel="stylesheet" type="text/css">
+<link href="/manage/styles/common.css" rel="stylesheet" type="text/css">
+
+<script type="text/javascript" src="/manage/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="/manage/js/my-select.js"></script>
+<script type="text/javascript" src="/manage/js/upload_article.js"></script>
+</head>
+<body>
+
+ 	<!-- 用于遮住下层的div -->
+    <div class="shield_down_div"></div>
+    <div class="uploading_tip">
+   		<h4 style="font-size: 16px;">您的作品正在上传中，请耐心等候...</h4>
+   		<img alt="等待上传" src="/manage/images/uploading.gif" width="100px" height="100px" class="uploading_image">
+    </div>
+    	
+    <div style="display: block;">
+    	<!-- 回到顶端start -->
+  		<div class="side-btns-wrap">
+  			<div class="side-btns-top">
+  				<a href="javascript:;" class="side-btns-top-btn" title="回到顶端"></a>
+  			</div>
+  		</div>
+  		<!-- 回到顶端end -->
+  		
+  		<div class="wrap">
+  			<!-- 顶部start -->
+  			<div class="header">
+  				<div class="logo">
+  					<img src="/manage/images/toplogo2.png" width="180" height="63">
+  				</div>
+  			</div>
+  			<!-- 顶部end -->
+  			<!-- 上传作品start -->
+  			<form action="/uploadArticleAction.action" class="upload-form" method="post" enctype="multipart/form-data">
+	  			<div class="upload-wrap up_active">
+	  				<div class="up_top cysel">
+	  					<p id="upload-style" class="product-style">
+	  						作品类型：
+	  						<select id="product-article-style" style="display: none;" name="article.category">
+	  							<option value="Javascript">Javascript</option>
+	  							<option value="HTML">HTML</option>
+	  							<option value="CSS">CSS</option>
+	  							<option value="ES6">ES6</option>
+	  							<option value="Git">Git</option>
+	  						</select>
+	  					</p>
+	  					
+	  					<p class="product-style">
+	  						文章主题：
+	  						<input type="text" class="input-text" style="margin-left: 23px;" name="article.title" id="article-title" 
+	  					 	     placeholder="请输入文章主题" />
+	  						<span style="margin-left: 10px;">*必填项</span>
+	  						<span class="error-tip fill-info" style="display: none; color: red;">标红处为必填项</span>
+	  					</p>
+	  					<p class="product-style">
+	  						文章标签：
+	  						<input type="text" class="input-text" style="margin-left: 23px;" name="article.label" id="article-label" 
+	  					 	     placeholder="请输入文章标签" />
+	  						<span style="margin-left: 10px;">*必填项</span>
+	  						<span class="error-tip fill-info" style="display: none; color: red;">标红处为必填项</span>
+	  					</p>
+	  					<p class="product-style">
+	  						文章简介：
+	  						<input type="text" class="input-text" style="margin-left: 23px;" name="article.description" id="article-description" 
+	  					 	     placeholder="请输入文章简介" />
+	  						<span style="margin-left: 10px;">*必填项</span>
+	  						<span class="error-tip fill-info" style="display: none; color: red;">标红处为必填项</span>
+	  					</p>
+	  					<p class="product-style">
+	  						<span style="position: relative; width: 20px;">
+	  							文章内容：
+	  						</span>
+	  						<span style="position: relative; left: -82px; top: 30px;">（*必填项）</span>
+	  						<textarea rows="8" cols="120" name="article.content" id="article-content" 
+	  						 class="spe-textarea pic-list-introduce"></textarea>
+	  					</p>
+	  					<div class="psre fl">
+	  						<span style="position: relative; width: 20px;">
+	  							主图：
+	  						</span>
+	  						<input type="file" name="picture" style="margin-top: 10px;"/>
+	  						<br/>
+	  					</div>
+	  					
+	  					<div class="up-active-btn">
+	  						<input type="submit" value="提交" class="submit-btn" onclick="return showUploadingGif();"/>
+	  					</div>
+	  				</div>
+	  			</div>
+  			</form>
+  			<!-- 上传作品end -->
+    	</div>
+    	
+    	<!-- 底层div -->
+  		<div class="footer">
+  			<p>Copyright © 2015 GXU, All Rights Reserved By Kingx</p>
+  			<p>广西大学红树林网络文化工作室</p>
+  		</div>
+     </div>
+
+</body>
+</html>

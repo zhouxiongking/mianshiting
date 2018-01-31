@@ -17,4 +17,7 @@ public interface BaseDao
 	
 	public List listAllByPage(String hql, int pageNo, int pageSize, final Object... parameters);
 	
+	public List listPageBySQL(String sql, int pageNo, int pageSize, final Object... parameters);
+	
+	public List listBySQL(String sql, final Object... parameters);
 }

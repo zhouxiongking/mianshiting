@@ -6,7 +6,6 @@
 
 	<constant name="struts.objectFactory" value="spring" /> 
 	<constant name="struts.i18n.encoding" value="UTF-8"/>
-	<constant name="struts.action.extension" value="action"/>
 	<constant name="struts.multipart.minSize" value="0" /> 
 	<constant name="struts.multipart.maxSize" value="100000000000" />
 	<constant name="struts.ui.theme" value="simple" />
@@ -14,6 +13,6 @@
 
 	<include file="configs/struts/struts_comment.xml"></include>
 	<include file="configs/struts/struts_heart.xml"></include>
-	<include file="configs/struts/struts_video.xml"></include>
+	<include file="configs/struts/struts_article.xml"></include>
 	
 </struts>

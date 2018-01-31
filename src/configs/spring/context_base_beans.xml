@@ -18,7 +18,7 @@
             <value>jdbc:mysql://127.0.0.1:3306/share?characterEncoding=UTF-8</value>
         </property>
         <property name="username"><value>root</value></property>
-        <property name="password"><value>xxxxxxx</value></property>
+        <property name="password"><value>XXXXXXXXXX</value></property>
     </bean>
 
 	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
@@ -27,7 +27,7 @@
             <props>
                 <prop key="hibernate.connection.SetBigStringTryClob">true</prop>
                 <prop key="hibernate.jdbc.use_streams_for_binary">true</prop>
-                <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+                <prop key="hibernate.dialect">yiban.share.util.MyUniqueSQLDialect</prop>
                 <prop key="hibernate.autoReconnect">true</prop>
                 <prop key="hibernate.show_sql">true</prop>
             </props>
@@ -37,8 +37,8 @@
 				<value>yiban/share/pojo/ComHeart.hbm.xml</value>
 				<value>yiban/share/pojo/Comments.hbm.xml</value>
 				<value>yiban/share/pojo/Heart.hbm.xml</value>
-				<value>yiban/share/pojo/Reply.hbm.xml</value>
-				<value>yiban/share/pojo/Video.hbm.xml</value>
+				<value>yiban/share/pojo/Article.hbm.xml</value>
+				<value>yiban/share/pojo/Reading.hbm.xml</value>
 			</list>
 		</property>
         

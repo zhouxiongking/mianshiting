@@ -15,8 +15,8 @@
 	<property name="heartService" ref="heartService"></property>
 </bean>
 
-<bean id="videoAction" class="yiban.share.action.video.VideoAction" scope="prototype">
-	<property name="videoService" ref="videoService"></property>
+<bean id="articleAction" class="yiban.share.action.article.ArticleAction" scope="prototype">
+	<property name="articleService" ref="articleService"></property>
 </bean>
 
 <bean id="manageVideoAction" class="yiban.share.action.video.ManageVideoAction" scope="prototype">
