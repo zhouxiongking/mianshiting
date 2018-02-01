@@ -16,17 +16,18 @@ $(function() {
 function getPreNextArticle() {
 	var search = window.location.search;
 	var articleId = search.split('=')[1];
-	
-	$.ajax({
-		url: '/article-json/loadPreAndNext',
-		data: {
-			articleId: articleId
-		},
-		dataType: 'json',
-		success: function(result) {
-			renderPreNextArticle(result.preArticle, result.nextArticle);
-		}
-	});
+	if(articleId && parseInt(articleId) > 0) {
+		$.ajax({
+			url: '/article-json/loadPreAndNext',
+			data: {
+				articleId: articleId
+			},
+			dataType: 'json',
+			success: function(result) {
+				renderPreNextArticle(result.preArticle, result.nextArticle);
+			}
+		});
+	}
 }
 
 /**
@@ -60,17 +61,18 @@ function renderPreNextArticle(preArticle, nextArticle) {
 function initArticlePage() {
 	var search = window.location.search;
 	var articleId = search.split('=')[1];
-	
-	$.ajax({
-		url: '/article-json/loadArticleDetail',
-		data: {
-			articleId: articleId
-		},
-		dataType: 'json',
-		success: function(result) {
-			renderArticle(result.article, result.reading);
-		}
-	});
+	if(articleId && parseInt(articleId) > 0) {
+		$.ajax({
+			url: '/article-json/loadArticleDetail',
+			data: {
+				articleId: articleId
+			},
+			dataType: 'json',
+			success: function(result) {
+				renderArticle(result.article, result.reading);
+			}
+		});
+	}
 }
 
 /**

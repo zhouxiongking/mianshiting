@@ -1,0 +1,26 @@
+{
+  "name": "mianshiting",
+  "version": "1.0.0",
+  "description": "测试项目",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhouxiongking/mianshiting.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zhouxiongking/mianshiting/issues"
+  },
+  "homepage": "https://github.com/zhouxiongking/mianshiting#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-uglify": "^3.0.0",
+    "stream-combiner2": "^1.1.1"
+  }
+}

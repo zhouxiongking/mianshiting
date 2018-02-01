@@ -69,9 +69,10 @@ function getMore() {
 
 function initPage() {
 	var location = window.location.pathname;
+	$('.loading').show();
 	if(location.indexOf('html') >= 0) {
 		// 分类页
-		initCategoryPage(1);
+		initCategoryPage(1, 'classify');
 	} else {
 		// 主页
 		initMainPage(1); 
@@ -188,7 +189,13 @@ function renderPage(list, type) {
 	if(list && list.length) {
 		$('.no-more').hide();
 	} else {
+		if(type == 'search' || type == 'classify') {
+			$('.no-more').text('抱歉，没找到相关文章~~~~(>_<)~~~~');
+		} else {
+			$('.no-more').text('没有更多了...');
+		}
 		$('.no-more').show();
+		$('#get-more').hide();
 	}
 	for(var i = 0; i < list.length; i++) {
 		buffer.push('<div class="block">');

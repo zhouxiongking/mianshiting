@@ -35,9 +35,11 @@ function showToTop() {
 	$(window).scroll(function() {
 		var scrollTop = $(this).scrollTop();
 		if(scrollTop >= 200) {
-			$(".side-btns-wrap").show();
+			$(".side-btns-wrap").addClass('show');
+			$(".side-btns-wrap").removeClass('hide');
 		} else{
-			$(".side-btns-wrap").hide();	
+			$(".side-btns-wrap").addClass('hide');
+			$(".side-btns-wrap").removeClass('show');
 		}
 	});
 }
@@ -58,7 +60,8 @@ function searchKeyword() {
 	$("#search-btn").click(function() {
 		var keyword = $("#search-input").val();
 		if(keyword && keyword.trim().length) {
-			sendRequest(keyword, 1);
+			$('.loading').show();
+			sendRequest(keyword, 1, 'search');
 		}
 	});
 }

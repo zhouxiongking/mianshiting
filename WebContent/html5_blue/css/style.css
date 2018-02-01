@@ -902,20 +902,6 @@ text-decoration:underline;
 .f404 span {
 	font-size: 5em;
 }
-.totop {
-	position: fixed;
-	right: 25px;
-	bottom: 25px;
-	display: block;
-	width: 26px;
-	height: 62px;
-	background: url(../images/rocket.png) no-repeat 0 0;
-	-webkit-transition: all .2s ease-in-out;
-	cursor: pointer;
-}
-.totop:hover {
-	background: url(../images/rocket.png) no-repeat 0 -62px;
-}
 .dp-highlighter {
 	font-family: "Courier New", Courier, mono;
 	font-size: 90%;
@@ -1514,7 +1500,7 @@ text-decoration:underline;
 .message textarea{ width:490px; height:100px; padding:10px; border:1px solid #ddd}
 .message .tj{ width:130px; height:40px; text-align:center; line-height:40px; background:#0090CE; color:#fff; border:0; margin-left:48px; cursor:pointer}
 .loading {text-align: center; display: none;}
-.no-more {font-size: .9rem; text-align: center; display: none;}
+.no-more {font-size: .9rem; text-align: center; display: none; margin-top: 20px;}
 .hot-label li a {color: #666;background-color: #f6f6f6;float: left;width: 80%;margin: 0 1% 1% 0;padding: 0 8px;font-size: 12px;height: 29px;line-height: 29px;overflow: hidden;}
 .hot-label li a:hover{background-color: #8AC78F; color: #ffffff;}
 
@@ -1692,7 +1678,17 @@ input, button, select, textarea {
 	bottom: 60px;
 	z-index: 100;
 	overflow: hidden;
-	display: none;
+	opacity: 0;
+}
+
+.show {
+	opacity: 1;
+	transition: all .3s ease-in-out;
+}
+
+.hide {
+	opacity: 0;
+	transition: all .3s ease-in-out;
 }
 
 .side-btns-top 
