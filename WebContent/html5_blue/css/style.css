@@ -1251,7 +1251,7 @@ text-decoration:underline;
 	left: 0;
 	width: 160px;
 	height: 120px;
-	background: url(../images/shine_brands.png) no-repeat -160px 0;
+	background: url(/html5_blue/images/shine_brands.png) no-repeat -160px 0;
 	margin: 4px;
 }
 .rslides {
@@ -1497,8 +1497,9 @@ text-decoration:underline;
 .message{ overflow:hidden}
 .message dd{ margin-bottom:10px;}
 .message .kuang{ width:500px; height:40px; padding-left:10px; border:1px solid #ddd}
-.message textarea{ width:490px; height:100px; padding:10px; border:1px solid #ddd}
-.message .tj{ width:130px; height:40px; text-align:center; line-height:40px; background:#0090CE; color:#fff; border:0; margin-left:48px; cursor:pointer}
+.message textarea{ width:650px; height:200px; padding:10px; border:1px solid #ddd}
+.message .tj{ width:130px; height:40px; text-align:center; line-height:40px; background:#41b3e4; color:#fff; border:0; cursor:pointer;outline: none;}
+.message .tj:hover{background:#21a6e0;}
 .loading {text-align: center; display: none;}
 .no-more {font-size: .9rem; text-align: center; display: none; margin-top: 20px;}
 .hot-label li a {color: #666;background-color: #f6f6f6;float: left;width: 80%;margin: 0 1% 1% 0;padding: 0 8px;font-size: 12px;height: 29px;line-height: 29px;overflow: hidden;}
@@ -1766,4 +1767,9 @@ input, button, select, textarea {
     margin-top: -300px;
     z-index: 1000;
     display: none;
+}
+.warning {
+	opacity: 0;
+	color: red;
+	margin-left: 10px;
 }

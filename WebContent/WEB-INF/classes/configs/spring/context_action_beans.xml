@@ -23,4 +23,8 @@
 	<property name="videoService" ref="videoService"></property>
 </bean>
 
+<bean id="messageAction" class="yiban.share.action.message.MessageAction" scope="prototype">
+	<property name="messageService" ref="messageService"></property>
+</bean>
+
 </beans>

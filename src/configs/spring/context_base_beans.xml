@@ -18,7 +18,7 @@
             <value>jdbc:mysql://127.0.0.1:3306/share?characterEncoding=UTF-8</value>
         </property>
         <property name="username"><value>root</value></property>
-        <property name="password"><value>XXXXXXX</value></property>
+        <property name="password"><value>XXXXXXXX</value></property>
     </bean>
 
 	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
@@ -39,6 +39,7 @@
 				<value>yiban/share/pojo/Heart.hbm.xml</value>
 				<value>yiban/share/pojo/Article.hbm.xml</value>
 				<value>yiban/share/pojo/Reading.hbm.xml</value>
+				<value>yiban/share/pojo/Message.hbm.xml</value>
 			</list>
 		</property>
         

@@ -138,3 +138,13 @@ create table reading
    count                int                            not null,
    constraint PK_READING primary key clustered (id)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/* 留言板 */
+create table message
+(
+   id                   int                            not null AUTO_INCREMENT,
+   name                 varchar(10)                    null,
+   content              varchar(100)                   not null,
+   leave_time           varchar(20)                    null,
+   constraint PK_READING primary key clustered (id)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;

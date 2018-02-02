@@ -14,5 +14,6 @@
 	<include file="configs/struts/struts_comment.xml"></include>
 	<include file="configs/struts/struts_heart.xml"></include>
 	<include file="configs/struts/struts_article.xml"></include>
+	<include file="configs/struts/struts_message.xml"></include>
 	
 </struts>

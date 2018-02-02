@@ -10,10 +10,14 @@
 <link rel="icon" href="/favicon.ico" type="image/x-icon" />
 <link rel="stylesheet" type="text/css" media="all" href="/dist/css/style.css" />
 <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" media="all" href="/html5_blue/css/pagination.css" />
+
 <script type="text/javascript" src="/html5_blue/js/jquery.min.js"></script>
 <script type="text/javascript" src="/html5_blue/js/responsiveslides.min.js"></script>
 <script type="text/javascript" src="/scripts/common.js"></script>
 <script type="text/javascript" src="/html5_blue/js/yycm.js"></script>
+<script type="text/javascript" src="/html5_blue/js/jquery.pagination.js"></script>
+
 </head>
 <body>
 <!-- 回到顶端start -->
@@ -56,21 +60,28 @@
         <h1> 给我留言 </h1>
       </div>
       <div class="article_content"> 
-      	<dl class="message">
-         <form action="/plus/diy.php" enctype="multipart/form-data" method="post">
-        <input type="hidden" name="action" value="post" />
-        <input type="hidden" name="diyid" value="1" />
-        <input type="hidden" name="do" value="2" />
-
-        	<dt></dt>
-            <dd>姓名：<input type="text" class="kuang" name="xm" id="xm"></dd>
-            <dd>邮箱：<input type="text" class="kuang" name="yx" id="yx"></dd>
-            <dd>内容：<textarea name="cont" id="cont"></textarea></dd>
-            <input type="hidden" name="dede_fields" value="xm,text;yx,text;cont,multitext" />
-			<input type="hidden" name="dede_fieldshash" value="ef88e9a45eb83937c2f64f8e31574841" />
-            <dd><input type="submit" class="tj" value="提交"></dd>
-        </dl>
+      	<div class="message">
+	        <input type="hidden" name="action" value="post" />
+	        <input type="hidden" name="diyid" value="1" />
+	        <input type="hidden" name="do" value="2" />
+			<dl>
+				<dt></dt>
+	            <dd>
+	            	<textarea name="content" id="content" placeholder="有什么想对站长说的吗？站长很期待噢~"></textarea>
+	            	<span id="count">0</span> / 100
+	            </dd>
+	            <dd>
+	            	<button type="button" class="tj" id="btn">提交</button>
+	            	<span class="warning"></span>
+	            </dd>
+			</dl>
+        </div>
       </div>
+      
+      <!-- 留言列表区 -->
+      <div></div>
+      <!-- 分页 -->
+      <div class='m-style pager'></div>
     </div>
   </div>
 </div>
@@ -82,14 +93,6 @@
   </div>
 </div>
 
-<script>
-	$(function(){
-		$('.tj').click(function(){
-			if($('#xm').val()==''){alert('请输入姓名！'); return false;}
-			if($('#yx').val()==''){alert('请输入邮箱！'); return false;}
-			if($('#cont').val()==''){alert('请输入内容！'); return false;}
-		})
-	})
-</script>
+<script type="text/javascript" src="/scripts/liuyan.js"></script>
 </body>
 </html>
