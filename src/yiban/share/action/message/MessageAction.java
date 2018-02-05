@@ -22,6 +22,8 @@ public class MessageAction extends ActionSupport{
 	
 	private String type;
 	
+	private int totalCount;
+	
 	// 保存留言
 	public String saveMessage() throws Exception {
 		// 时间
@@ -39,8 +41,13 @@ public class MessageAction extends ActionSupport{
 	
 	// 分页加载留言板信息
 	public String loadMsgByPage() throws Exception {
-		String hql = "from Message";
+		String hql = "from Message order by leaveTime desc";
+		String counthql = "select count(*) from message";
 		this.msgList = this.messageService.listAllByPage(hql, this.pageNo, 20);
+		if("init".equals(this.type)) {
+			Number count = (Number) this.messageService.listBySQL(counthql).get(0);
+			this.totalCount = count.intValue();
+		}
 		return SUCCESS;
 	}
 	
@@ -87,6 +94,14 @@ public class MessageAction extends ActionSupport{
 	public void setType(String type) {
 		this.type = type;
 	}
-	
+
+	public int getTotalCount() {
+		return totalCount;
+	}
+
+	public void setTotalCount(int totalCount) {
+		this.totalCount = totalCount;
+	}
+
 	
 }

@@ -19,6 +19,16 @@ public class MessageServiceImpl implements MessageService {
 		return this.baseDao.listAllByPage(hql, pageNo, pageSize, parameters);
 	}
 	
+	@Override
+	public List loadByHql(String hql, Object... paramsters) {
+		return this.baseDao.loadByHql(hql, paramsters);
+	}
+	
+	@Override
+	public List listBySQL(String sql, Object... parameters) {
+		return this.baseDao.listBySQL(sql, parameters);
+	}
+	
 	public BaseDao getBaseDao() {
 		return baseDao;
 	}

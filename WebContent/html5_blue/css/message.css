@@ -1,0 +1,50 @@
+.message-div {
+	margin-bottom: 30px;
+}
+
+.message-div ul li {
+	border-bottom: 1px solid #e3e3e3;
+	padding-bottom: 20px;
+	margin-bottom: 20px;
+}
+
+.pic {
+	float: left;
+}
+
+.pic img {
+	border-radius: 50%;
+}
+
+.msg-content {
+	margin-left: 50px;
+	padding-left: 20px;
+	color: #888;
+}
+
+.msg-content span{
+	margin-right: 20px;
+	font-size: 14px;
+	color: #999;
+}
+
+.msg-content span.level {
+	float: right;
+}
+
+.msg {
+	margin-top: 15px;
+}
+
+.count-msg {
+	font-size: 20px;
+	font-weight: 500;
+	margin-bottom: 30px;
+	padding-bottom: 5px;
+	border-bottom: 1px solid #e3e3e3;
+}
+
+.count-msg b {
+	color: #ff5e52;
+}
+

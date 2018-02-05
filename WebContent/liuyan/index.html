@@ -11,10 +11,11 @@
 <link rel="stylesheet" type="text/css" media="all" href="/dist/css/style.css" />
 <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" media="all" href="/html5_blue/css/pagination.css" />
+<link rel="stylesheet" type="text/css" media="all" href="/html5_blue/css/message.css" />
 
 <script type="text/javascript" src="/html5_blue/js/jquery.min.js"></script>
 <script type="text/javascript" src="/html5_blue/js/responsiveslides.min.js"></script>
-<script type="text/javascript" src="/scripts/common.js"></script>
+<script type="text/javascript" src="/scripts/navbar.js"></script>
 <script type="text/javascript" src="/html5_blue/js/yycm.js"></script>
 <script type="text/javascript" src="/html5_blue/js/jquery.pagination.js"></script>
 
@@ -78,8 +79,15 @@
         </div>
       </div>
       
+      
       <!-- 留言列表区 -->
-      <div></div>
+      <div class="message-div">
+      	<h2 class="count-msg">留言 <b id="totalCount"></b></h2>
+      	<div class="loading">
+	    	<img src="/html5_blue/images/loading.gif"></img>
+	    </div>
+      	<ul id="ul-message-list"></ul>
+      </div>
       <!-- 分页 -->
       <div class='m-style pager'></div>
     </div>
