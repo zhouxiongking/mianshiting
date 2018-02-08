@@ -361,20 +361,24 @@ code {
 	font-size: 1.2em;
 	color: #000;
 }
+.block h2 a .red {
+	color: red;
+}
 .block h2 a:hover {
 	color: #00a4dc;
 }
 .more {
 	float: right;
 }
-.more a {
+.preem span.more a {
 	padding: 0 5px;
 	font-size: 12px;
 	display: block;
-	background-color: #fff;
-}
-.more a:hover {
+	color: #fff;
 	background-color: #0086e3;
+}
+.preem span.more a:hover {
+	background-color: #0076c7;
 	color: #fff!important;
 }
 .gsmall {

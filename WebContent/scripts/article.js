@@ -84,28 +84,30 @@ function renderArticle(article) {
 	articleDiv.empty();
 	articleDiv.append(article.content);
 	
-	var videoBuffer = [];
-	videoBuffer.push('<video id="video" class="video-js vjs-default-skin vjs-big-play-centered" controls preload="none" width="738" height="400"');
-	videoBuffer.push('data-setup="{}">');
-	videoBuffer.push('<source src="/html5_blue/video/test.mp4" type="video/mp4"/>');
-	videoBuffer.push('<track kind="captions" src="" srclang="en" label="English"></track>');
-	videoBuffer.push('<track kind="subtitles" src="" srclang="en" label="English"></track>');
-	videoBuffer.push('</video>');
-	
-	var videoObj = $(videoBuffer.join(''));
-	
-	// 第一个图片
-	var img = $('.article-box .article-content p img:eq(0)');
-	// 兄弟元素
-	var p = $(img).parent().prev();
-	// 父元素
-	var parent = $(img).parent();
-	// 父元素的兄弟元素
-	var brother = parent.next();
-	
-	p.after(videoObj);
-	parent.remove();
-	brother.remove();
+	if(article.videoUrl) {
+		var videoBuffer = [];
+		videoBuffer.push('<video id="video" class="video-js vjs-default-skin vjs-big-play-centered" controls preload="none" width="738" height="400"');
+		videoBuffer.push('data-setup="{}">');
+		videoBuffer.push('<source src="' + article.videoUrl + '" type="video/mp4"/>');
+		videoBuffer.push('<track kind="captions" src="" srclang="en" label="English"></track>');
+		videoBuffer.push('<track kind="subtitles" src="" srclang="en" label="English"></track>');
+		videoBuffer.push('</video>');
+		
+		var videoObj = $(videoBuffer.join(''));
+		
+		// 第一个图片
+		var img = $('.article-box .article-content p img:eq(0)');
+		// 兄弟元素
+		var p = $(img).parent().prev();
+		// 父元素
+		var parent = $(img).parent();
+		// 父元素的兄弟元素
+		var brother = parent.next();
+		
+		p.after(videoObj);
+		parent.remove();
+		brother.remove();
+	}
 }
 
 

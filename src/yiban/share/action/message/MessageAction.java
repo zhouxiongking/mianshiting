@@ -34,6 +34,7 @@ public class MessageAction extends ActionSupport{
 		this.message = new Message();
 		message.setLeaveTime(time);
 		message.setContent(content);
+		message.setIsPass(0);
 		this.messageService.saveMessage(message);
 		
 		return SUCCESS;
@@ -41,8 +42,8 @@ public class MessageAction extends ActionSupport{
 	
 	// 分页加载留言板信息
 	public String loadMsgByPage() throws Exception {
-		String hql = "from Message order by leaveTime desc";
-		String counthql = "select count(*) from message";
+		String hql = "from Message where isPass = 1 order by leaveTime desc";
+		String counthql = "select count(*) from message where is_pass = 1";
 		this.msgList = this.messageService.listAllByPage(hql, this.pageNo, 20);
 		if("init".equals(this.type)) {
 			Number count = (Number) this.messageService.listBySQL(counthql).get(0);

@@ -27,6 +27,8 @@ public class Article  implements java.io.Serializable {
      private String uploadtime;
      // 文章主图的url
      private String url;
+     // 视频url
+     private String videoUrl;
      // 用户名
      private String username;
      // 点击量
@@ -136,6 +138,14 @@ public class Article  implements java.io.Serializable {
 
 	public void setClicks(int clicks) {
 		this.clicks = clicks;
+	}
+
+	public String getVideoUrl() {
+		return videoUrl;
+	}
+
+	public void setVideoUrl(String videoUrl) {
+		this.videoUrl = videoUrl;
 	}
 
 	

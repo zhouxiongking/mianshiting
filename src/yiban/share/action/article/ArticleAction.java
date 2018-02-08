@@ -253,7 +253,7 @@ public class ArticleAction extends ActionSupport
 				}
 			}
 		}
-		String hql = "from Article where upper(category) like '%" + param + "%'";
+		String hql = "from Article where upper(category) like '%" + param.toUpperCase() + "%'";
 		this.articleList = this.articleService.listAllByPage(hql, this.pageNo, 10);
 		
 		return SUCCESS;

@@ -115,13 +115,18 @@ var mapObj = {
 	'advance': ['进阶教学', ''],
 	'framework': ['框架教学', ''],
 	'tool': ['工具教学', ''],
+	'NodeJS': ['NodeJS', ''],
+	'db': ['数据库', ''],
 	'Javascript': ['基础教学', 'Javascript'],
 	'HTML5': ['基础教学', 'HTML5'],
 	'CSS3': ['基础教学', 'CSS3'],
 	'ES6': ['进阶教学', 'ES6'],
 	'Vue': ['框架教学', 'Vue全家桶'],
+	'AngularJS': ['框架教学', 'AngularJS'],
+	'React': ['框架教学', 'React全家桶'],
 	'Git': ['工具教学', 'Git教学'],
 	'Webpack': ['工具教学', 'webpack教学'],
+	'Mysql': ['数据库', 'Mysql']
 }
 
 /**
@@ -137,6 +142,8 @@ function dealCurrentCategory(category) {
 		case 'advance': 
 		case 'framework':
 		case 'tool':
+		case 'NodeJS':
+		case 'db':
 			first.attr('href', '/html/?category=' + category);
 			break;
 		case 'Javascript':
@@ -150,12 +157,18 @@ function dealCurrentCategory(category) {
 			second.attr('href', '/html/?category=' + category);
 			break;
 		case 'Vue': 
+		case 'AngularJS': 
+		case 'React': 
 			first.attr('href', '/html/?category=framework');
 			second.attr('href', '/html/?category=' + category);
 			break;
 		case 'Git':
 		case 'Webpack':
 			first.attr('href', '/html/?category=tool');
+			second.attr('href', '/html/?category=' + category);
+			break;
+		case 'Mysql':
+			first.attr('href', '/html/?category=db');
 			second.attr('href', '/html/?category=' + category);
 			break;
 	}
@@ -184,6 +197,7 @@ function initMainPage(pageNo, type) {
  */
 function renderPage(list, type) {
 	var articleDiv = $('.articles');
+	var speStr = '';
 	var buffer = [];
 	// 如果返回数组为空
 	if(list && list.length) {
@@ -203,8 +217,10 @@ function renderPage(list, type) {
 		buffer.push('<h2><span class="category">');
 		buffer.push('<a href="/html?category=' + list[i].category +'" rel="category tag">' + list[i].category + '</a>');
 		buffer.push('<i class="fa fa-caret-right"></i></span>');
+		speStr = list[i].videoUrl ? '(内含学习视频)' : '';
 		// 标题
-		buffer.push('<a href="/articles?articleId=' + list[i].id + '" target="_ablank">' + list[i].title + '</a></h2>');
+		buffer.push('<a href="/articles?articleId=' + list[i].id + '" target="_ablank">' + list[i].title);
+		buffer.push('<span class="red">' + speStr + '</span></a></h2>');
 		buffer.push('<div class="clear"></div>');
 		// 图片
 		if(list[i].url) {

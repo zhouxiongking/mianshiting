@@ -66,7 +66,7 @@ create table picture
 /*==============================================================*/
 create table reply 
 (
-   id                   int                            null AUTO_INCREMENT,
+   id                   int                            not null AUTO_INCREMENT,
    fromid               varchar(32)                    null,
    commentid            varchar(32)                    null,
    toid                 varchar(32)                    null,
@@ -99,19 +99,19 @@ create table users
 create table article 
 (
    id                   int                            not null AUTO_INCREMENT,
-   description          varchar(200)                    null,
+   description          varchar(200)                   null,
    title                varchar(50)                    null,
    label                varchar(20)                    null,
    content              text                           null,
    clicks               int                            null,
    uploadtime           varchar(20)                    null,
    url                  varchar(100)                   null,
-   picUrl               varchar(100)                   null,
+   video_url            varchar(100)                   null,
    status               varchar(10)                    null,
-   obligate             varchar(20)                    null,
+   category             varchar(20)                    null,
    userId               varchar(32)                    null,
    username             varchar(20)                    null,
-   constraint PK_VIDEO primary key clustered (id)
+   constraint PK_ARTICLE primary key clustered (id)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*==============================================================*/
@@ -146,5 +146,6 @@ create table message
    name                 varchar(10)                    null,
    content              varchar(100)                   not null,
    leave_time           varchar(20)                    null,
+   isPass               int                            not null,
    constraint PK_READING primary key clustered (id)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;

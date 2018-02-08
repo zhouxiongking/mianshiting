@@ -53,8 +53,10 @@
 
 .cysel .ds_list
 {
+	position: relative;
 	background-color: #fff;
 	margin-left: -1px;
+	z-index: 10;
 }
 
 .cysel .dsl_cont 

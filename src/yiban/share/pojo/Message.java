@@ -8,6 +8,8 @@ public class Message {
 	private String content;
 	
 	private String leaveTime;
+	
+	private int isPass;
 
 	public int getId() {
 		return id;
@@ -39,6 +41,14 @@ public class Message {
 
 	public void setLeaveTime(String leaveTime) {
 		this.leaveTime = leaveTime;
+	}
+
+	public int getIsPass() {
+		return isPass;
+	}
+
+	public void setIsPass(int isPass) {
+		this.isPass = isPass;
 	}
 	
 	
