@@ -71,39 +71,33 @@ public class ArticleAction extends ActionSupport
 	 */
 	public String uploadArticle() throws Exception
 	{
-		//1.获取上传图片后缀名
-		String[] type = this.pictureFileName.split("\\.");
-		String fileType = type[type.length - 1];
-		
 		//3.将图片文件写到指定的位置
-		FileInputStream fis = null;
-		FileOutputStream fos = null;
-		String path = null;
 		String dbPath = null;
-		try
-		{
-			String uniqe = KeyUtil.getNewKey();
-			String realPath = ServletActionContext.getServletContext().getRealPath("/");
-			dbPath = "/upload/picture/" + uniqe + "." + fileType;
-			path = realPath + dbPath; 
-			fis = new FileInputStream(picture);
-			fos = new FileOutputStream(new File(path));
-			byte[] buffer = new byte[1024];
-            int len = 0;
-            while ((len = fis.read(buffer)) > 0) 
-            {
-                fos.write(buffer, 0, len);
-            }
-		}
-		catch (Exception e)
-		{
-			e.printStackTrace();
-		}
-		finally
-		{
-			fis.close();
-			fos.close();
-		}
+		if("Javascript".equals(this.article.getCategory())) {
+			dbPath = "http://mstcdn.oss-cn-shenzhen.aliyuncs.com/images/logo/javascript-logo.png";
+		} else if("HTML5".equals(this.article.getCategory())) {
+			dbPath = "http://mstcdn.oss-cn-shenzhen.aliyuncs.com/images/logo/html5-logo.jpeg";
+		} else if("CSS3".equals(this.article.getCategory())) {
+			dbPath = "http://mstcdn.oss-cn-shenzhen.aliyuncs.com/images/logo/css-logo.jpeg";
+		} else if("ES6".equals(this.article.getCategory())) {
+			dbPath = "http://mstcdn.oss-cn-shenzhen.aliyuncs.com/images/logo/es6-logo.jpeg";
+		} else if("Git".equals(this.article.getCategory())) {
+			dbPath = "http://mstcdn.oss-cn-shenzhen.aliyuncs.com/images/logo/git-logo.jpeg";
+		} else if("AngularJS".equals(this.article.getCategory())) {
+			dbPath = "http://mstcdn.oss-cn-shenzhen.aliyuncs.com/images/logo/angularjs.jpeg";
+		} else if("Vue".equals(this.article.getCategory())) {
+			dbPath = "http://mstcdn.oss-cn-shenzhen.aliyuncs.com/images/logo/vue-logo.png";
+		} else if("React".equals(this.article.getCategory())) {
+			dbPath = "http://mstcdn.oss-cn-shenzhen.aliyuncs.com/images/logo/react-logo.jpeg";
+		} else if("Gulp".equals(this.article.getCategory())) {
+			dbPath = "http://mstcdn.oss-cn-shenzhen.aliyuncs.com/images/logo/gulp-logo.jpeg";
+		} else if("Webpack".equals(this.article.getCategory())) {
+			dbPath = "http://mstcdn.oss-cn-shenzhen.aliyuncs.com/images/logo/webpack-logo.png";
+		} else if("NodeJS".equals(this.article.getCategory())) {
+			dbPath = "http://mstcdn.oss-cn-shenzhen.aliyuncs.com/images/logo/nodejs-logo.jpeg";
+		} else if("Mysql".equals(this.article.getCategory())) {
+			dbPath = "http://mstcdn.oss-cn-shenzhen.aliyuncs.com/images/logo/mysql-logo.jpeg";
+		} else {}
 		
 		//5.处理时间
 		Date date = new Date();          

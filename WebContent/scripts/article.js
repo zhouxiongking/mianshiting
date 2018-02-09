@@ -61,6 +61,7 @@ function renderPreNextArticle(preArticle, nextArticle) {
 function initArticlePage() {
 	var search = window.location.search;
 	var articleId = search.split('=')[1];
+	$('#SOHUCS').attr('sid', 'article-' + articleId);
 	if(articleId && parseInt(articleId) > 0) {
 		$.ajax({
 			url: '/article-json/loadArticleDetail',
@@ -81,12 +82,12 @@ function initArticlePage() {
  */
 function renderArticle(article) {
 	var articleDiv = $('.con-article');
+	$('.con-article').empty();
 	articleDiv.empty();
 	articleDiv.append(article.content);
-	
 	if(article.videoUrl) {
 		var videoBuffer = [];
-		videoBuffer.push('<video id="video" class="video-js vjs-default-skin vjs-big-play-centered" controls preload="none" width="738" height="400"');
+		videoBuffer.push('<video id="video" class="video-js vjs-default-skin vjs-big-play-centered for-video" controls preload="none"');
 		videoBuffer.push('data-setup="{}">');
 		videoBuffer.push('<source src="' + article.videoUrl + '" type="video/mp4"/>');
 		videoBuffer.push('<track kind="captions" src="" srclang="en" label="English"></track>');
@@ -94,19 +95,14 @@ function renderArticle(article) {
 		videoBuffer.push('</video>');
 		
 		var videoObj = $(videoBuffer.join(''));
-		
-		// 第一个图片
-		var img = $('.article-box .article-content p img:eq(0)');
-		// 兄弟元素
-		var p = $(img).parent().prev();
-		// 父元素
-		var parent = $(img).parent();
-		// 父元素的兄弟元素
-		var brother = parent.next();
-		
-		p.after(videoObj);
-		parent.remove();
-		brother.remove();
+		// 正文内容上部分
+		var sub = $('.article-box .article-sub');
+		sub.after(videoObj);
+		// 控制视频高度
+		var px = $('#video').css('width');
+		var width = px.substring(0, px.length - 2);
+		// 控制视频高度
+		$('#video').css('height',width / 2 + 'px');
 	}
 }
 

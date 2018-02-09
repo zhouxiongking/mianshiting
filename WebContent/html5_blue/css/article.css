@@ -110,6 +110,11 @@ img {
     list-style: square outside;
 }
 
+.article-box .article-content>div ol, 
+.article-box .article-content ol {
+    list-style: decimal outside;
+}
+
 .article-box .article-content>div ol li, 
 .article-box .article-content>div ul li, 
 .article-box .article-content ol li, 
@@ -268,4 +273,8 @@ a {
 	.navbar-header {
 		display: none;
 	}
+}
+
+.for-video {
+	width: 100%;
 }
