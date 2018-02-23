@@ -3,6 +3,7 @@ package yiban.share.action.article;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.net.URLDecoder;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -71,33 +72,48 @@ public class ArticleAction extends ActionSupport
 	 */
 	public String uploadArticle() throws Exception
 	{
-		//3.将图片文件写到指定的位置
+		//3.选出对应的图片和label标签
 		String dbPath = null;
+		String label = null;
 		if("Javascript".equals(this.article.getCategory())) {
 			dbPath = "http://mstcdn.oss-cn-shenzhen.aliyuncs.com/images/logo/javascript-logo.png";
+			label = "JS,javascript,js";
 		} else if("HTML5".equals(this.article.getCategory())) {
 			dbPath = "http://mstcdn.oss-cn-shenzhen.aliyuncs.com/images/logo/html5-logo.jpeg";
+			label = "html, html5";
 		} else if("CSS3".equals(this.article.getCategory())) {
 			dbPath = "http://mstcdn.oss-cn-shenzhen.aliyuncs.com/images/logo/css-logo.jpeg";
+			label = "css, css3";
 		} else if("ES6".equals(this.article.getCategory())) {
 			dbPath = "http://mstcdn.oss-cn-shenzhen.aliyuncs.com/images/logo/es6-logo.jpeg";
+			label = "es6, ES6, ECMAScript6";
 		} else if("Git".equals(this.article.getCategory())) {
 			dbPath = "http://mstcdn.oss-cn-shenzhen.aliyuncs.com/images/logo/git-logo.jpeg";
+			label = "git, GIT";
 		} else if("AngularJS".equals(this.article.getCategory())) {
 			dbPath = "http://mstcdn.oss-cn-shenzhen.aliyuncs.com/images/logo/angularjs.jpeg";
+			label = "Angular,ng,NG,angularjs";
 		} else if("Vue".equals(this.article.getCategory())) {
 			dbPath = "http://mstcdn.oss-cn-shenzhen.aliyuncs.com/images/logo/vue-logo.png";
+			label = "Vue,Vue2,Vue2.0,Vuex,Vue-Router,Vue-resource";
 		} else if("React".equals(this.article.getCategory())) {
 			dbPath = "http://mstcdn.oss-cn-shenzhen.aliyuncs.com/images/logo/react-logo.jpeg";
+			label = "react, React";
 		} else if("Gulp".equals(this.article.getCategory())) {
 			dbPath = "http://mstcdn.oss-cn-shenzhen.aliyuncs.com/images/logo/gulp-logo.jpeg";
+			label = "gulp";
 		} else if("Webpack".equals(this.article.getCategory())) {
 			dbPath = "http://mstcdn.oss-cn-shenzhen.aliyuncs.com/images/logo/webpack-logo.png";
+			label = "webpack, webpack2, webpack3";
 		} else if("NodeJS".equals(this.article.getCategory())) {
 			dbPath = "http://mstcdn.oss-cn-shenzhen.aliyuncs.com/images/logo/nodejs-logo.jpeg";
+			label = "node, nodejs, NodeJS";
 		} else if("Mysql".equals(this.article.getCategory())) {
 			dbPath = "http://mstcdn.oss-cn-shenzhen.aliyuncs.com/images/logo/mysql-logo.jpeg";
-		} else {}
+			label = "mysql, sql";
+		} else {
+			label = "";
+		}
 		
 		//5.处理时间
 		Date date = new Date();          
@@ -107,6 +123,7 @@ public class ArticleAction extends ActionSupport
 		this.article.setUsername("corder分享");
 		this.article.setUploadtime(time);
 		this.article.setUrl(dbPath);
+		this.article.setLabel(label);
 		this.articleService.saveArticle(this.article);
 		
 		return SUCCESS;
@@ -123,7 +140,7 @@ public class ArticleAction extends ActionSupport
 	}
 	
 	/**
-	 * 根据传过来的id，找到对应的文章，然后找出前一篇和后一篇
+	 * 根据传过来的id，找到对应的文章
 	 * @return
 	 * @throws Exception
 	 */
@@ -147,7 +164,7 @@ public class ArticleAction extends ActionSupport
 	}
 	
 	/**
-	 * 
+	 * 找出前一篇和后一篇
 	 * @return
 	 * @throws Exception
 	 */
@@ -234,21 +251,17 @@ public class ArticleAction extends ActionSupport
 	 * @throws Exception
 	 */
 	public String loadArticlesByKeyword() throws Exception{
+		this.keyword = URLDecoder.decode(this.keyword, "UTF-8");
 		String[] keywords = this.keyword.split(" ");
-		String param = "";
-		for(int i = 0; i < keywords.length; i++){
-			if(i < keywords.length - 1){
-				if(keywords[i] != null && !"".equals(keywords[i])) {
-					param += keywords[i] + ",";
-				}
-			} else {
-				if(keywords[i] != null && !"".equals(keywords[i])) {
-					param += keywords[i];
+		for(int i = 0; i < keywords.length; i++) {
+			if(keywords[i] != null && keywords[i].trim().length() > 0) {
+				String hql = "from Article where upper(label) like '%" + keywords[i].toUpperCase() + "%' or upper(title) like '%" + keywords[i].toUpperCase() + "%'";
+				this.articleList = this.articleService.listAllByPage(hql, this.pageNo, 10);
+				if(this.articleList != null && this.articleList.size() > 0) {
+					break;
 				}
 			}
 		}
-		String hql = "from Article where upper(category) like '%" + param.toUpperCase() + "%'";
-		this.articleList = this.articleService.listAllByPage(hql, this.pageNo, 10);
 		
 		return SUCCESS;
 	}

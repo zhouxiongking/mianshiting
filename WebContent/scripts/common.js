@@ -57,6 +57,8 @@ function searchKeyword() {
 	$("#search-btn").click(function() {
 		var keyword = $("#search-input").val();
 		if(keyword && keyword.trim().length) {
+			var articleDiv = $('.articles');
+			articleDiv.empty();
 			$('.loading').show();
 			sendRequest(keyword, 1, 'search');
 		}
@@ -72,7 +74,7 @@ function sendRequest(keyword, pageNo, type) {
 	$.ajax({
 		url: '/article-json/loadArticlesByKeyword',
 		data: {
-			keyword: keyword,
+			keyword: encodeURIComponent(keyword),
 			pageNo: pageNo
 		},
 		dataType: 'json',
