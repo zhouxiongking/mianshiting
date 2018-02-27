@@ -85,6 +85,7 @@ function renderArticle(article) {
 	$('.con-article').empty();
 	articleDiv.empty();
 	articleDiv.append(article.content);
+	// 如果文章有对应的视频，则添加上视频
 	if(article.videoUrl) {
 		var videoBuffer = [];
 		videoBuffer.push('<video id="video" class="video-js vjs-default-skin vjs-big-play-centered for-video" controls preload="none"');
@@ -103,6 +104,13 @@ function renderArticle(article) {
 		var width = px.substring(0, px.length - 2);
 		// 控制视频高度
 		$('#video').css('height',width / 2 + 'px');
+	}
+	// 如果文章中有其他的文章链接，则删掉这个链接
+	var linkA = $('.article-content a');
+	console.log(linkA);
+	if(linkA && linkA.length >= 0) {
+		var linkObj = $(linkA[0]);
+		linkObj.attr("href", 'javascript:;');
 	}
 }
 
