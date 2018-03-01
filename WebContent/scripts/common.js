@@ -23,6 +23,9 @@ $(function() {
 	// 回到顶端
 	scrollToTop();
 	
+	// 移动端导航事件
+	navbarEvent();
+	
 });
 
 /**
@@ -171,6 +174,16 @@ function renderHotArticles(list, type) {
 	articleUl.append(buffer.join(''));
 }
 
+/**
+ * 移动端导航事件
+ */
+function navbarEvent() {
+	$('.short-navbar').toggle(function() {
+		$('.navbar-collapse').show();
+	}, function() {
+		$('.navbar-collapse').hide();
+	});
+}
 
 
 

@@ -84,9 +84,9 @@ function initNav() {
 	}
 	buffer.push('<ul class="sub-menu"></ul></li>');
 	if(pathname.indexOf('fm') >= 0) {
-		buffer.push('<li class="menu-item current_page_item"><a href="/fm/">关于博主</a>');
+		buffer.push('<li class="menu-item current_page_item"><a href="/fm/">关于站主</a>');
 	} else {
-		buffer.push('<li class="menu-item "><a href="/fm/">关于博主</a>');
+		buffer.push('<li class="menu-item "><a href="/fm/">关于站主</a>');
 	}
 	buffer.push('<ul class="sub-menu"></ul></li>');
 	buffer.push('</ul>');

@@ -157,7 +157,6 @@ code {
 }
 .navbar-collapse {
 	background-color: #0090ce;
-	display: none;
 }
 .toggle-search, .mainmenu, .navbar-toggle {
 	color: #fff;
@@ -188,8 +187,10 @@ code {
 		background: #45B6F7;
 		color: #fff;
 	}
-	.articles {
-		margin-top: 45px;
+	.navbar-collapse {
+		display: none;
+		position: absolute;
+		z-index: 99;
 	}
 }
 
@@ -266,6 +267,13 @@ code {
 	line-height: 45px;
 	padding-left: 30px;
 }
+
+@media (max-width: 768px) {
+	.nav ul li ul{
+		display: block;
+	}
+}
+
 .nav ul li ul li a {
 	float: none;
 	color: #fff;
@@ -890,7 +898,7 @@ text-decoration:underline;
 }
 .footer {
 	clear: both;
-	padding: 20px 10px;
+	padding: 15px 0px;
 	background: #333;
 	color: #fff;
 	font-size: 12px;
@@ -1404,6 +1412,7 @@ text-decoration:underline;
 .navbar-header, .navbar-collapse {
 	display: block!important;
 }
+
 .nav ul {
 	font-size: 0;
 }
@@ -1702,59 +1711,55 @@ input, button, select, textarea {
 }
 
 /*     移至顶部start      */
-.side-btns-wrap 
-{
-	width: 50px;
-	right: 50px;
-	position: fixed;
-	bottom: 60px;
-	z-index: 100;
-	overflow: hidden;
-	opacity: 0;
-}
-
-.show {
-	opacity: 1;
-	transition: all .3s ease-in-out;
-}
-
-.hide {
-	opacity: 0;
-	transition: all .3s ease-in-out;
-}
-
-.side-btns-top 
-{
-	width: 50px;
-}
-
-.side-btns-top a 
-{
-	display: block;
-	text-indent: -999em;
-	cursor: pointer;
-}
-
-.side-btns-top-btn 
-{
-	filter: Alpha(Opacity=35);
-	opacity: .35;
-	overflow: hidden;
-}
-
-.side-btns-top-btn 
-{
-	display: block;
-	width: 50px;
-	height: 50px;
-	text-indent: -9999em;
-	background: url("/images/bg.png") no-repeat;
-	background-position: 0 -430px;
-}
-
-.side-btns-top-btn:hover
-{
-	opacity: .55;
+@media (min-width: 768px) {
+	.side-btns-wrap {
+		width: 50px;
+		right: 50px;
+		position: fixed;
+		bottom: 60px;
+		z-index: 100;
+		overflow: hidden;
+		opacity: 0;
+	}
+	
+	.show {
+		opacity: 1;
+		transition: all .3s ease-in-out;
+	}
+	
+	.hide {
+		opacity: 0;
+		transition: all .3s ease-in-out;
+	}
+	
+	.side-btns-top {
+		width: 50px;
+	}
+	
+	.side-btns-top a {
+		display: block;
+		text-indent: -999em;
+		cursor: pointer;
+	}
+	
+	.side-btns-top-btn {
+		filter: Alpha(Opacity=35);
+		opacity: .35;
+		overflow: hidden;
+	}
+	
+	.side-btns-top-btn {
+		display: block;
+		width: 50px;
+		height: 50px;
+		text-indent: -9999em;
+		background: url("/images/bg.png") no-repeat;
+		background-position: 0 -430px;
+	}
+	
+	.side-btns-top-btn:hover {
+		opacity: .55;
+	}
 }
 /*移至顶部end*/
 
@@ -1804,3 +1809,16 @@ input, button, select, textarea {
 	color: red;
 	margin-left: 10px;
 }
+
+.short-navbar {
+	display: none;
+}
+@media (max-width: 768px) {
+	.short-navbar {
+		display: block;
+		color: #fff;
+		padding: 0 25px 0 23px;
+		line-height: 45px;
+	}
+}
+
