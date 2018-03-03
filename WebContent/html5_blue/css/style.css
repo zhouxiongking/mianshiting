@@ -93,7 +93,7 @@ code {
 	line-height: 60px;
 	padding: 5px 0;
 	margin-top: 25px;
-	visibility: hidden;
+	visibility: visible!important;
 }
 .top {
 	padding: 0;
