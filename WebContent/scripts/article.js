@@ -107,9 +107,8 @@ function renderArticle(article) {
 	}
 	// 如果文章中有其他的文章链接，则删掉这个链接
 	var linkA = $('.article-content a');
-	console.log(linkA);
-	if(linkA && linkA.length >= 0) {
-		var linkObj = $(linkA[0]);
+	for(var i = 0; i < linkA.length; i++) {
+		var linkObj = $(linkA[i]);
 		linkObj.attr("href", 'javascript:;');
 	}
 }
