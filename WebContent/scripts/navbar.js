@@ -77,6 +77,12 @@ function initNav() {
 	buffer.push('<ul class="sub-menu">');
 	buffer.push('<li class="sub-menu-item"><a href="/html/?category=Mysql">Mysql</a></li>');
 	buffer.push('</ul></li>');
+	if("synthesize".indexOf(category) >= 0) {
+		buffer.push('<li class="menu-item current_page_item"><a href="/html/?category=synthesize">综合</a>');
+	} else {
+		buffer.push('<li class="menu-item "><a href="/html/?category=synthesize">综合</a>');
+	}
+	buffer.push('</li>');
 	if(pathname.indexOf('liuyan') >= 0) {
 		buffer.push('<li class="menu-item current_page_item"><a href="/liuyan/">给我留言</a>');
 	} else {

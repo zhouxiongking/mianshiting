@@ -146,6 +146,6 @@ create table message
    name                 varchar(10)                    null,
    content              varchar(100)                   not null,
    leave_time           varchar(20)                    null,
-   isPass               int                            not null,
+   is_pass               int                            not null,
    constraint PK_READING primary key clustered (id)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;

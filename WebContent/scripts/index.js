@@ -126,7 +126,8 @@ var mapObj = {
 	'React': ['框架教学', 'React全家桶'],
 	'Git': ['工具教学', 'Git教学'],
 	'Webpack': ['工具教学', 'webpack教学'],
-	'Mysql': ['数据库', 'Mysql']
+	'Mysql': ['数据库', 'Mysql'],
+	'synthesize': ['综合', '']
 }
 
 /**
@@ -144,6 +145,7 @@ function dealCurrentCategory(category) {
 		case 'tool':
 		case 'NodeJS':
 		case 'db':
+		case 'synthesize':
 			first.attr('href', '/html/?category=' + category);
 			break;
 		case 'Javascript':
@@ -170,6 +172,8 @@ function dealCurrentCategory(category) {
 		case 'Mysql':
 			first.attr('href', '/html/?category=db');
 			second.attr('href', '/html/?category=' + category);
+			break;
+		default:
 			break;
 	}
 }
@@ -212,6 +216,9 @@ function renderPage(list, type) {
 		$('#get-more').hide();
 	}
 	for(var i = 0; i < list.length; i++) {
+		if(list[i].category === 'synthesize'){
+			list[i].category = '综合';
+		}
 		buffer.push('<div class="block">');
 		// 类型
 		buffer.push('<h2><span class="category">');

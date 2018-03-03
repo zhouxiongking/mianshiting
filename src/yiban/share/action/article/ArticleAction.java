@@ -111,6 +111,9 @@ public class ArticleAction extends ActionSupport
 		} else if("Mysql".equals(this.article.getCategory())) {
 			dbPath = "http://mstcdn.oss-cn-shenzhen.aliyuncs.com/images/logo/mysql-logo.jpeg";
 			label = "mysql, sql";
+		} else if("synthesize".equals(this.article.getCategory())) {
+			dbPath = "http://mstcdn.oss-cn-shenzhen.aliyuncs.com/images/logo/web.png";
+			label = "synthesize, 综合, web";
 		} else {
 			label = "";
 		}
@@ -224,6 +227,9 @@ public class ArticleAction extends ActionSupport
 		for(int i = 0; i < tempList.size(); i++) {
 			label = new Label();
 			Object[] valueList = (Object[]) tempList.get(i);
+			if("synthesize".equals(valueList[0])){
+				valueList[0] = "综合";
+			}
 			String name = (String) valueList[0];
 			Number count = (Number) valueList[1];
 			label.setName(name);
@@ -279,9 +285,11 @@ public class ArticleAction extends ActionSupport
 		} else if("advance".equals(this.category)) {
 			conditions = " 'ES6' ";
 		} else if("framework".equals(this.category)) {
-			conditions = " 'Vue' ";
+			conditions = " 'Vue', 'AngularJS', 'React' ";
 		} else if("tool".equals(this.category)){
-			conditions = " 'Git', 'Webpack' ";
+			conditions = " 'Git', 'Webpack', 'Gulp' ";
+		} else if("db".equals(this.category)){
+			conditions = " 'Mysql' ";
 		} else {
 			conditions = " '" + this.category + "' ";
 		}
