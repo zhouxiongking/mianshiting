@@ -227,9 +227,6 @@ public class ArticleAction extends ActionSupport
 		for(int i = 0; i < tempList.size(); i++) {
 			label = new Label();
 			Object[] valueList = (Object[]) tempList.get(i);
-			if("synthesize".equals(valueList[0])){
-				valueList[0] = "综合";
-			}
 			String name = (String) valueList[0];
 			Number count = (Number) valueList[1];
 			label.setName(name);

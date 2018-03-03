@@ -101,7 +101,7 @@ create table article
    id                   int                            not null AUTO_INCREMENT,
    description          varchar(200)                   null,
    title                varchar(50)                    null,
-   label                varchar(30)                    null,
+   label                varchar(50)                    null,
    content              text                           null,
    clicks               int                            null,
    uploadtime           varchar(20)                    null,

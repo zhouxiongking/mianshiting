@@ -1534,7 +1534,7 @@ text-decoration:underline;
 .message .tj:hover{background:#21a6e0;}
 .loading {text-align: center; display: none;}
 .no-more {font-size: .9rem; text-align: center; display: none; margin-top: 20px;}
-.hot-label li a {color: #666;background-color: #f6f6f6;float: left;width: 85%;margin: 0 1% 1% 0;padding: 0 8px;font-size: 12px;height: 29px;line-height: 29px;overflow: hidden;}
+.hot-label li a {color: #666;background-color: #f6f6f6;float: left;width: 85%;margin: 0 1% 1% 0;padding: 0 3px;font-size: 12px;height: 29px;line-height: 29px;overflow: hidden;}
 .hot-label li a:hover{background-color: #8AC78F; color: #ffffff;}
 
 .site-search {

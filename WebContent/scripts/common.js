@@ -119,8 +119,14 @@ function getHotLabels() {
 function renderLabelList(list) {
 	var labelUl = $('.hot-label');
 	var buffer = [];
+	var labelName;
 	for(var i = 0; i < list.length; i++) {
-		buffer.push('<li><a href="/html?category=' + list[i].name + '">' + list[i].name + '（' + list[i].counts + '）</a></li>');
+		if(list[i].name === 'synthesize') {
+			labelName = '综合';
+		} else {
+			labelName = list[i].name;
+		}
+		buffer.push('<li><a href="/html?category=' + list[i].name + '">' + labelName + '（' + list[i].counts + '）</a></li>');
 	}
 	labelUl.append($(buffer.join('')));
 }
