@@ -171,9 +171,9 @@ function renderHotArticles(list, type) {
 	var buffer = [];
 	for(var i = 0; i < list.length; i++) {
 		buffer.push('<li><div class="sideshow">');
-		buffer.push('<a href="/articles/?articleId=' + list[i].id + '" target="_ablank" title="' + list[i].title +'">');
+		buffer.push('<a href="/articles/?articleId=' + list[i].id + '" title="' + list[i].title +'">');
 		buffer.push('<img width="80" height="60" src="' + list[i].url + '" class="icon wp-post-image" alt="' + list[i].title + '" title="' + list[i].title + '"></a>');
-		buffer.push('<a href="/articles/?articleId=' + list[i].id + '" target="_ablank" title="' + list[i].title +'">' + list[i].title + '</a> ');
+		buffer.push('<a href="/articles/?articleId=' + list[i].id + '" title="' + list[i].title +'">' + list[i].title + '</a> ');
 		buffer.push('<span class="datetime">' + list[i].uploadtime + '</span>');
 		buffer.push('</div></li>');
 	}

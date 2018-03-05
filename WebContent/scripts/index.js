@@ -226,13 +226,13 @@ function renderPage(list, type) {
 		buffer.push('<i class="fa fa-caret-right"></i></span>');
 		speStr = list[i].videoUrl ? '(内含学习视频)' : '';
 		// 标题
-		buffer.push('<a href="/articles?articleId=' + list[i].id + '" target="_ablank">' + list[i].title);
+		buffer.push('<a href="/articles?articleId=' + list[i].id + '">' + list[i].title);
 		buffer.push('<span class="red">' + speStr + '</span></a></h2>');
 		buffer.push('<div class="clear"></div>');
 		// 图片
 		if(list[i].url) {
 			buffer.push('<div class="viewimg">');
-			buffer.push('<a href="/articles?articleId=' + list[i].id + '" target="_ablank" class="ipic" title=' + list[i].title + '>');
+			buffer.push('<a href="/articles?articleId=' + list[i].id + '" class="ipic" title=' + list[i].title + '>');
 			buffer.push('<img src=' + list[i].url + ' alt=' + list[i].title + ' class="thumbnail">');
 			buffer.push('<span class="shine" style="background-position: 160px 50%;">&nbsp;</span>');
 			buffer.push('</a></div>');
