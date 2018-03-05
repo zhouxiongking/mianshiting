@@ -209,7 +209,7 @@ public class ArticleAction extends ActionSupport
 	 * @throws Exception
 	 */
 	public String loadRecentArticles() throws Exception {
-		String hql = "from Article order by uploadtime desc";
+		String hql = "from Article order by id desc";
 		this.recentArticleList = this.articleService.listAllByPage(hql, this.pageNo, 5);
 		return SUCCESS;
 	}
@@ -258,7 +258,7 @@ public class ArticleAction extends ActionSupport
 		String[] keywords = this.keyword.split(" ");
 		for(int i = 0; i < keywords.length; i++) {
 			if(keywords[i] != null && keywords[i].trim().length() > 0) {
-				String hql = "from Article where upper(label) like '%" + keywords[i].toUpperCase() + "%' or upper(title) like '%" + keywords[i].toUpperCase() + "%'";
+				String hql = "from Article where upper(label) like '%" + keywords[i].toUpperCase() + "%' or upper(title) like '%" + keywords[i].toUpperCase() + "%' order by id desc";
 				this.articleList = this.articleService.listAllByPage(hql, this.pageNo, 10);
 				if(this.articleList != null && this.articleList.size() > 0) {
 					break;
@@ -290,7 +290,7 @@ public class ArticleAction extends ActionSupport
 		} else {
 			conditions = " '" + this.category + "' ";
 		}
-		String sqlString = "from Article where category in (" + conditions + ") order by uploadtime desc";
+		String sqlString = "from Article where category in (" + conditions + ") order by id desc";
 		this.articleList = this.articleService.listAllByPage(sqlString, this.pageNo, 10);
 		return SUCCESS;
 	}
