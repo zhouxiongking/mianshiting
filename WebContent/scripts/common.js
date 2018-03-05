@@ -186,8 +186,12 @@ function renderHotArticles(list, type) {
 function navbarEvent() {
 	$('.short-navbar').toggle(function() {
 		$('.navbar-collapse').show();
+		$('.navbar-collapse').animate({width: '50%'}, 'fast');
 	}, function() {
-		$('.navbar-collapse').hide();
+		$('.navbar-collapse').animate({width: '0'}, 'fast');
+		setTimeout(function(){
+			$('.navbar-collapse').hide();
+		}, 200);
 	});
 }
 

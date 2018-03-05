@@ -15,10 +15,32 @@ article, aside, blockquote, body, button, dd, details, div, dl, dt, fieldset, fi
 	box-sizing: content-box;
 }
 
-.con-article {
+.con-article, .reward {
 	background-color: #fff;
 	border: 1px solid #ececec;
 	padding: 20px;
+}
+
+.reward img {
+	width: 25%;
+}
+
+@media (max-width: 768px){
+	.reward img {
+		width: 49%;
+	}
+}
+
+.text-center {
+	text-align: center;
+}
+
+.m-t {
+	margin-top: 5px;
+}
+
+.m-b {
+	margin-bottom: 5px;
 }
 
 .article-box {

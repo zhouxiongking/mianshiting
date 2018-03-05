@@ -120,7 +120,7 @@ public class ArticleAction extends ActionSupport
 		
 		//5.处理时间
 		Date date = new Date();          
-		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");  
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");  
 		String time = df.format(date);  
 		
 		this.article.setUsername("corder分享");
@@ -196,7 +196,7 @@ public class ArticleAction extends ActionSupport
 	 */
 	public String loadArticleByPage() throws Exception
 	{
-		String hql = "from Article";
+		String hql = "from Article order by id desc";
 		
 		this.articleList = this.articleService.listAllByPage(hql, this.pageNo, 10);
 		

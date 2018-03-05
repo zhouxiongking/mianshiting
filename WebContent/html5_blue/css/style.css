@@ -188,6 +188,7 @@ code {
 		color: #fff;
 	}
 	.navbar-collapse {
+		width: 0;
 		display: none;
 		position: absolute;
 		z-index: 99;
@@ -1495,17 +1496,21 @@ text-decoration:underline;
 	line-height: 45px;
 }
 @media(max-width:768px) {
-.viewimg img {
-	width: 100px;
-	height: 90px;
-}
-.preview {
-	height: 90px;
-	overflow: hidden;
-}
-.preem {
-	display: none
-}
+	.viewimg img {
+		width: 100px;
+		height: 90px;
+	}
+	.preview {
+		height: 50px;
+		overflow: hidden;
+	}
+	.preem .more,
+	.preem .user {
+		display: none;
+	}
+	.preem > span{
+		margin-right: 15px;
+	}
 }
 .pagination li {
 	float: left;
