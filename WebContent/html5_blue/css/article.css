@@ -26,8 +26,9 @@ article, aside, blockquote, body, button, dd, details, div, dl, dt, fieldset, fi
 }
 
 @media (max-width: 768px){
-	.reward img {
-		width: 49%;
+	
+	.reward {
+		display: none;
 	}
 }
 
