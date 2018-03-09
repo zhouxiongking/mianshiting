@@ -18,6 +18,7 @@ import yiban.share.pojo.Label;
 import yiban.share.pojo.Reading;
 import yiban.share.service.article.ArticleService;
 import yiban.share.util.KeyUtil;
+import yiban.share.util.OSSUtil;
 
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -301,7 +302,17 @@ public class ArticleAction extends ActionSupport
 	 * @throws Exception
 	 */
 	public String uploadPicToOSS() throws Exception {
-		System.out.println("this is ivike!!!!!");
+		System.out.println(this.picture);
+		System.err.println(this.pictureFileName);
+		
+		FileInputStream fis = new FileInputStream(this.picture);
+		String uniqeName = KeyUtil.getNewKey();
+		String[] nameArr = this.pictureFileName.split("\\.");
+		String suffixName = nameArr[nameArr.length - 1];
+		
+		OSSUtil ossUtil = new OSSUtil();
+		ossUtil.uploadFileToOSS(fis, uniqeName, suffixName);
+		
 		return SUCCESS;
 	}
 	
@@ -483,7 +494,5 @@ public class ArticleAction extends ActionSupport
 	public void setNextArticle(Article nextArticle) {
 		this.nextArticle = nextArticle;
 	}
-	
-	
-	
+
 }

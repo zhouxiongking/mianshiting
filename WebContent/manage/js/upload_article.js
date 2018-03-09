@@ -124,14 +124,8 @@ function handleFiles(files) {
     }
 
     var formData = new FormData();
-    formData.append('file', files[0]);
-    formData.append('filename', files[0].name);
-    //2.拖拽完自动上传
-    var formData = new FormData();
-    for (var i = 0; i < files.length; i++) {
-        formData.append('file_' + i, files[i]);
-        formData.append('filename_' + i, files[i].name);
-    }
+    formData.append('picture', files[0]);
+    formData.append('pictureFileName', files[0].name);
 
     $.ajax({
         url: '/article-json/uploadPicToOSS',
