@@ -295,6 +295,16 @@ public class ArticleAction extends ActionSupport
 		return SUCCESS;
 	}
 	
+	/**
+	 * 上传图片至云服务器
+	 * @return
+	 * @throws Exception
+	 */
+	public String uploadPicToOSS() throws Exception {
+		System.out.println("this is ivike!!!!!");
+		return SUCCESS;
+	}
+	
 	public void setArticleService(ArticleService articleService)
 	{
 		this.articleService = articleService;
