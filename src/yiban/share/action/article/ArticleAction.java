@@ -196,7 +196,7 @@ public class ArticleAction extends ActionSupport
 	 */
 	public String loadArticleByPage() throws Exception
 	{
-		String hql = "from Article order by id desc";
+		String hql = "from Article order by clicks asc";
 		
 		this.articleList = this.articleService.listAllByPage(hql, this.pageNo, 10);
 		
@@ -290,7 +290,7 @@ public class ArticleAction extends ActionSupport
 		} else {
 			conditions = " '" + this.category + "' ";
 		}
-		String sqlString = "from Article where category in (" + conditions + ") order by id desc";
+		String sqlString = "from Article where category in (" + conditions + ") order by clicks asc";
 		this.articleList = this.articleService.listAllByPage(sqlString, this.pageNo, 10);
 		return SUCCESS;
 	}
