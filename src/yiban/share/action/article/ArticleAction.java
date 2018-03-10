@@ -66,6 +66,8 @@ public class ArticleAction extends ActionSupport
 	// 下一篇
 	private Article nextArticle;
 	
+	private String picUrl;
+	
 	/**
 	 * 上传文章
 	 * @return
@@ -312,7 +314,8 @@ public class ArticleAction extends ActionSupport
 		
 		OSSUtil ossUtil = new OSSUtil();
 		ossUtil.uploadFileToOSS(fis, uniqeName, suffixName);
-		
+		// 构造返回值
+		this.picUrl = "http://mstcdn.oss-cn-shenzhen.aliyuncs.com/images/articles/" + uniqeName + "." + suffixName;
 		return SUCCESS;
 	}
 	
@@ -495,4 +498,13 @@ public class ArticleAction extends ActionSupport
 		this.nextArticle = nextArticle;
 	}
 
+	public String getPicUrl() {
+		return picUrl;
+	}
+
+	public void setPicUrl(String picUrl) {
+		this.picUrl = picUrl;
+	}
+
+	
 }

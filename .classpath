@@ -13,17 +13,5 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry kind="lib" path="/Users/zhouxiong/Documents/files/aliyun_java_sdk_20171127/aliyun-sdk-oss-2.8.2.jar"/>
-	<classpathentry kind="lib" path="/Users/zhouxiong/Documents/files/httpclient-4.5所需jar包/fluent-hc-4.5.jar"/>
-	<classpathentry kind="lib" path="/Users/zhouxiong/Documents/files/httpclient-4.5所需jar包/httpclient-4.5.jar"/>
-	<classpathentry kind="lib" path="/Users/zhouxiong/Documents/files/httpclient-4.5所需jar包/httpclient-cache-4.5.jar"/>
-	<classpathentry kind="lib" path="/Users/zhouxiong/Documents/files/httpclient-4.5所需jar包/httpclient-win-4.5.jar"/>
-	<classpathentry kind="lib" path="/Users/zhouxiong/Documents/files/httpclient-4.5所需jar包/httpcore-4.4.1.jar"/>
-	<classpathentry kind="lib" path="/Users/zhouxiong/Documents/files/httpclient-4.5所需jar包/httpmime-4.5.jar"/>
-	<classpathentry kind="lib" path="/Users/zhouxiong/Documents/files/httpclient-4.5所需jar包/jna-4.1.0.jar"/>
-	<classpathentry kind="lib" path="/Users/zhouxiong/Documents/files/httpclient-4.5所需jar包/commons-codec-1.9.jar"/>
-	<classpathentry kind="lib" path="/Users/zhouxiong/Documents/files/httpclient-4.5所需jar包/commons-logging-1.2.jar"/>
-	<classpathentry kind="lib" path="/Users/zhouxiong/Documents/files/httpclient-4.5所需jar包/jna-platform-4.1.0.jar"/>
-	<classpathentry kind="lib" path="/Users/zhouxiong/Documents/files/lib/jdom.jar"/>
 	<classpathentry kind="output" path="WebContent/WEB-INF/classes"/>
 </classpath>
