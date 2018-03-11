@@ -39,8 +39,8 @@
   		<div class="wrap">
   			<!-- 顶部start -->
   			<div class="header">
-  				<div class="logo">
-  					<img src="/manage/images/toplogo2.png" width="180" height="63">
+  				<div class="manage-title">
+  					<h1>面试厅文章编辑</h1>
   				</div>
   			</div>
   			<!-- 顶部end -->
@@ -79,12 +79,13 @@
 	  						<input type="text" class="input-text" style="margin-left: 23px;" name="article.description" id="article-description" 
 	  					 	     placeholder="请输入文章简介" />
 	  					</p>
+	  					<!-- 
 	  					<p class="product-style">
 	  						视频url：
 	  						<input type="text" class="input-text" style="margin-left: 33px;" name="article.videoUrl" id="article-videourl" 
 	  					 	     placeholder="视频地址" />
 	  					</p>
-	  					
+	  					 -->
 	  					<p class="product-style">
 	  						图片上传
 	  						<input type="file" style="margin-left: 33px;" onchange="uploadPic(event)"/>
@@ -139,22 +140,21 @@
      	}
      	
      	// 处理下富文本编辑器的内容
-    	var result = dealEditorContent();
+    	var result = dealEditorContent(title);
      	flag = flag && result;
      	
      	// 获取请求对象
      	var article = {};
      	article.category = $("#product-article-style").val();
-     	article.title = $("#article-title").val();
+     	article.title = title;
      	article.description = $("#article-description").val();
      	article.videoUrl = $("#article-videourl").val();
      	article.content = result;
-     	
-     	//$(".shield_down_div").show();
- 		//$(".uploading_tip").show();
-     	sendWriteArticleRequest(article);
-     	
-     	return false;
+     	if(flag) {
+     		$(".shield_down_div").show();
+     		$(".uploading_tip").show();
+         	sendWriteArticleRequest(article);
+     	}
      }
 
      /**
@@ -176,15 +176,31 @@
      			var hostname = window.location.hostname;
      			var port = window.location.port;
      			portVal = port ? ':' + port : port
-     			window.location.href = protocol + '//' + hostname + port + '/manage/success.html';
+     			window.location.href = protocol + '//' + hostname + portVal + '/manage/success.html';
      		}
      	});
      }
      
+     Date.prototype.Format = function (fmt) { 
+   	    var o = {
+   	        "M+": this.getMonth() + 1, //月份 
+   	        "d+": this.getDate(), //日 
+   	        "H+": this.getHours(), //小时 
+   	        "m+": this.getMinutes(), //分 
+   	        "s+": this.getSeconds(), //秒 
+   	        "q+": Math.floor((this.getMonth() + 3) / 3), //季度 
+   	        "S": this.getMilliseconds() //毫秒 
+   	    };
+   	    if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+   	    for (var k in o)
+   	    if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+   	    return fmt;
+    } 
+     
      /**
       * 处理富文本编辑器的内容
       */
-	function dealEditorContent() {
+	function dealEditorContent(title) {
     	var text = editor.txt.text();
     	if(!text || !text.trim().length) {
     		$("#error-content").show();
@@ -194,7 +210,24 @@
     	}
     	 
    		var html = editor.txt.html();
+   		// 给对应的标签加上对应的类
+   		// 1.先给最外层加上一个div，article-box类
+   		var container = $('<div class="article-box"></div>');
+   		// 2.添加一个h1，article-title类
+   		var articleTitle = $('<h1 class="article-title"></h1>');
+   		articleTitle.text(title);
+   		// 3.添加一个sub
+   		var currentTime = new Date().Format('yyyy-MM-dd HH:mm:ss');
+   		var subStr = '<div class="article-sub"><span class="original">原创</span><span>' + currentTime + '</span></div>';
+   		var jQsub = $(subStr);
+   		// 4.文章内容
+   		var articleContent = $('<div class="article-content"><div>' + html + '</div></div>');
    		
+   		container.append(articleContent);
+   		container.prepend(jQsub);
+   		container.prepend(articleTitle);
+   		
+   		return container[0].outerHTML;
    	}
     </script>
      
