@@ -198,6 +198,10 @@
 	cursor: pointer;
 }
 
+.submit-btn:hover {
+	background-color: #009a4b;
+}
+
 .del-btn-a
 {
 	width: 19px;
@@ -251,9 +255,34 @@
     font-weight: bold;
 }
 
+.tips {
+	font-size: 14px;
+	color: #f00;
+}
 
+.preview-color {
+	background-color: #19ace4;
+}
 
+.preview-color:hover {
+	background-color: #148dbb;
+}
 
+.close {
+	text-align: center;
+}
+
+.close-btn {
+	height: 56px;
+	color: #FFF;
+	font-size: 24px;
+	padding: 0 56px;
+	line-height: 56px;
+	display: inline-block;
+	background-color: #00ae55;
+	margin-top: 20px;
+	cursor: pointer;
+}
 
 
 

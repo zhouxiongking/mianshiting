@@ -12,6 +12,7 @@
 
 <link href="/manage/styles/pictureUpload.css" rel="stylesheet" type="text/css">
 <link href="/manage/styles/common.css" rel="stylesheet" type="text/css">
+<link href="/dist/css/common-article.css" rel="stylesheet" type="text/css">
 
 <script type="text/javascript" src="/manage/js/jquery-1.9.1.min.js"></script>
 <script type="text/javascript" src="/manage/js/my-select.js"></script>
@@ -22,9 +23,15 @@
 
  	<!-- 用于遮住下层的div -->
     <div class="shield_down_div"></div>
-    <div class="uploading_tip">
+     <div class="uploading_tip">
    		<h4 style="font-size: 16px;">您的作品正在上传中，请耐心等候...</h4>
    		<img alt="等待上传" src="/manage/images/uploading.gif" width="100px" height="100px" class="uploading_image">
+    </div>
+    <div class="preview">
+    	<div class="preview-article"></div>
+    	<div class="close">
+    		<button class="close-btn" onclick="closePreview()">关闭</button>
+    	</div>
     </div>
     	
     <div style="display: block;">
@@ -45,7 +52,7 @@
   			</div>
   			<!-- 顶部end -->
   			<!-- 上传作品start -->
-  			<form action="/uploadArticleAction.action" class="upload-form" method="post" enctype="multipart/form-data">
+  			<div class="upload-form">
 	  			<div class="upload-wrap up_active">
 	  				<div class="up_top cysel">
 	  					<p id="upload-style" class="product-style">
@@ -90,20 +97,22 @@
 	  						图片上传
 	  						<input type="file" style="margin-left: 33px;" onchange="uploadPic(event)"/>
 	  					</p>
+	  					<p class="tips">如果文章中有图片要插入，先从这里上传，然后将得到的图片url通过下面的富文本编辑器添加进去</p>
 	  					<p class="pic-url" id="return-pic-url"></p>
 	  					<p class="product-style">
 	  						<span>
 	  							文章内容：（*必填项）
 	  						</span>
 	  						<span class="error-tip fill-info" id="error-content" style="display: none; color: red;">文章内容为必填项</span>
-	  						<div id="article-content" class=""></div>
 	  					</p>
+	  					<div id="article-content" class=""></div>
 	  					<div class="up-active-btn">
 	  						<input type="button" value="提交" class="submit-btn" onclick="return showUploadingGif();"/>
+	  						<a class="submit-btn preview-color" href="javascript:;" onclick="preview()">预览</a>
 	  					</div>
 	  				</div>
 	  			</div>
-  			</form>
+  			</div>
   			<!-- 上传作品end -->
     	</div>
      </div>
@@ -210,6 +219,9 @@
     	}
     	 
    		var html = editor.txt.html();
+   		// 处理下文本编辑器生成的html
+   		html = filterHTML(html);
+   		
    		// 给对应的标签加上对应的类
    		// 1.先给最外层加上一个div，article-box类
    		var container = $('<div class="article-box"></div>');
@@ -229,6 +241,38 @@
    		
    		return container[0].outerHTML;
    	}
+     
+    /**
+     * 处理文本编辑器生成的html
+     */
+    function filterHTML(html) {
+    	// 去掉无用的空行
+		html = html.replace(/<p><br><\/p>/g, '');
+    	// table加边框
+		html = html.replace(/border="0"/g, 'border="1"');
+		return html;
+    }
+     
+    /**
+     * 预览
+     */
+	function preview() {
+		var title = $("#article-title").val();
+     	// 处理下富文本编辑器的内容
+    	var result = dealEditorContent(title);
+		$(".shield_down_div").show();
+		$(".preview-article").html(result);
+ 		$(".preview").show();
+	}
+    
+    /**
+     * 预览关闭
+     */
+     function closePreview() {
+   		 $(".shield_down_div").hide();
+  		 $(".preview").hide();
+     }
+     
     </script>
      
 	
