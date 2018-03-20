@@ -40,5 +40,8 @@
          <property name="clicks" type="int">
             <column name="clicks" />
         </property>
+        <property name="isPass" type="int">
+            <column name="is_pass" />
+        </property>
     </class>
 </hibernate-mapping>

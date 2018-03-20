@@ -33,6 +33,8 @@ public class Article  implements java.io.Serializable {
      private String username;
      // 点击量
      private int clicks;
+     // 是否审核通过
+     private int isPass;
 
     // Constructors
 
@@ -146,6 +148,14 @@ public class Article  implements java.io.Serializable {
 
 	public void setVideoUrl(String videoUrl) {
 		this.videoUrl = videoUrl;
+	}
+
+	public int getIsPass() {
+		return isPass;
+	}
+
+	public void setIsPass(int isPass) {
+		this.isPass = isPass;
 	}
 
 	

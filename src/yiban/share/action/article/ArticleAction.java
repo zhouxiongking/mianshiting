@@ -122,7 +122,7 @@ public class ArticleAction extends ActionSupport
 		}
 		
 		//5.处理时间
-		Date date = new Date();          
+		Date date = new Date();
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");  
 		String time = df.format(date);  
 		
@@ -130,6 +130,8 @@ public class ArticleAction extends ActionSupport
 		this.article.setUploadtime(time);
 		this.article.setUrl(dbPath);
 		this.article.setLabel(label);
+		this.article.setIsPass(0);
+		
 		this.articleService.saveArticle(this.article);
 		
 		return SUCCESS;
@@ -176,8 +178,8 @@ public class ArticleAction extends ActionSupport
 	 */
 	public String loadPreAndNext() throws Exception {
 		int id = Integer.parseInt(this.articleId);
-		String preHql = "from Article where id < ? order by id desc limit 1";
-		String nextHql = "from Article where id > ? order by id asc limit 1";
+		String preHql = "from Article where id < ? and isPass = 1 order by id desc limit 1";
+		String nextHql = "from Article where id > ? and isPass = 1 order by id asc limit 1";
 		List<Article> preList = this.articleService.loadByHql(preHql, id);
 		List<Article> nextList = this.articleService.loadByHql(nextHql, id);
 		
@@ -199,7 +201,7 @@ public class ArticleAction extends ActionSupport
 	 */
 	public String loadArticleByPage() throws Exception
 	{
-		String hql = "from Article order by clicks asc";
+		String hql = "from Article where isPass = 1 order by clicks asc";
 		
 		this.articleList = this.articleService.listAllByPage(hql, this.pageNo, 10);
 		
@@ -212,7 +214,7 @@ public class ArticleAction extends ActionSupport
 	 * @throws Exception
 	 */
 	public String loadRecentArticles() throws Exception {
-		String hql = "from Article order by id desc";
+		String hql = "from Article where isPass = 1 order by id desc";
 		this.recentArticleList = this.articleService.listAllByPage(hql, this.pageNo, 5);
 		return SUCCESS;
 	}
@@ -223,7 +225,7 @@ public class ArticleAction extends ActionSupport
 	 * @throws Exception
 	 */
 	public String loadHotLabels() throws Exception {
-		String sql = "select category,count(category) from article group by category";
+		String sql = "select category,count(category) from article where is_pass = 1 group by category";
 		List tempList = this.articleService.listBySQL(sql);
 		this.labelList = new ArrayList<Label>();
 		Label label = null;
@@ -246,7 +248,7 @@ public class ArticleAction extends ActionSupport
 	 * @throws Exception
 	 */
 	public String loadHotArticles() throws Exception {
-		String hql = "from Article order by clicks desc";
+		String hql = "from Article where isPass = 1 order by clicks desc";
 		this.hotArticleList = this.articleService.listAllByPage(hql, 1, 5);
 		return SUCCESS;
 	}
@@ -261,7 +263,7 @@ public class ArticleAction extends ActionSupport
 		String[] keywords = this.keyword.split(" ");
 		for(int i = 0; i < keywords.length; i++) {
 			if(keywords[i] != null && keywords[i].trim().length() > 0) {
-				String hql = "from Article where upper(label) like '%" + keywords[i].toUpperCase() + "%' or upper(title) like '%" + keywords[i].toUpperCase() + "%' order by id desc";
+				String hql = "from Article where upper(label) like '%" + keywords[i].toUpperCase() + "%' or upper(title) like '%" + keywords[i].toUpperCase() + "%' and isPass = 1 order by id desc";
 				this.articleList = this.articleService.listAllByPage(hql, this.pageNo, 10);
 				if(this.articleList != null && this.articleList.size() > 0) {
 					break;
@@ -293,7 +295,7 @@ public class ArticleAction extends ActionSupport
 		} else {
 			conditions = " '" + this.category + "' ";
 		}
-		String sqlString = "from Article where category in (" + conditions + ") order by clicks asc";
+		String sqlString = "from Article where category in (" + conditions + ") and isPass = 1 order by clicks asc";
 		this.articleList = this.articleService.listAllByPage(sqlString, this.pageNo, 10);
 		return SUCCESS;
 	}
@@ -304,9 +306,6 @@ public class ArticleAction extends ActionSupport
 	 * @throws Exception
 	 */
 	public String uploadPicToOSS() throws Exception {
-		System.out.println(this.picture);
-		System.err.println(this.pictureFileName);
-		
 		FileInputStream fis = new FileInputStream(this.picture);
 		String uniqeName = KeyUtil.getNewKey();
 		String[] nameArr = this.pictureFileName.split("\\.");

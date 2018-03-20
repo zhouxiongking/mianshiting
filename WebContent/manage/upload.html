@@ -260,9 +260,11 @@
 		var title = $("#article-title").val();
      	// 处理下富文本编辑器的内容
     	var result = dealEditorContent(title);
-		$(".shield_down_div").show();
-		$(".preview-article").html(result);
- 		$(".preview").show();
+     	if(result.length) {
+     		$(".shield_down_div").show();
+    		$(".preview-article").html(result);
+     		$(".preview").show();
+     	}
 	}
     
     /**

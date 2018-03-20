@@ -111,6 +111,7 @@ create table article
    category             varchar(20)                    null,
    userId               varchar(32)                    null,
    username             varchar(20)                    null,
+   is_pass              int                            null,
    constraint PK_ARTICLE primary key clustered (id)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
