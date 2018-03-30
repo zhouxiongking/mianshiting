@@ -18,6 +18,7 @@ public class CommentAction extends ActionSupport
 	private CommentService commentService;
 	
 	private Comments comment;
+	
 	//处理结果
 	private String result;
 	
@@ -27,56 +28,47 @@ public class CommentAction extends ActionSupport
 	
 	private Integer pageNo;
 	
-	private String picId;
+	private int articleId;
+	
+	private String content;
+	
 	/*
 	 * 保存comment对象
 	 */
 	public String doSaveComment() throws Exception
 	{
-		//已登录
-		this.result = "success";
 		//保存至数据库
 		//获取当前时间,添加上传时间
 		Date now = Calendar.getInstance().getTime();
 		DateFormat dateFormat = DateFormat.getDateTimeInstance();
 		String time = dateFormat.format(now);
-		this.comment.setComtime(time);
-		this.comment.setUserid("1");
-		this.comment.setCusername("kingx");
+		Comments comment = new Comments();
+		comment.setArticleId(articleId);
+		comment.setContent(content);
+		comment.setComtime(time);
+		comment.setUserid("1");
+		comment.setCusername("coder分享");
 		this.commentService.saveComment(comment);
-		//保存进数据库后，重新检索出前十条评论内容以更新页面上的内容
-		String hql = "from Comments where picid = ? order by comtime desc";
-		this.comTotal = this.commentService.loadByHql(hql, comment.getVideoid()).size();
-		this.comList = this.commentService.listAllByPage(hql, 1, 10, comment.getVideoid());
-	
+		
 		return SUCCESS;
 	}
 	
 	/**
-	 * 根据当前页数加载评论
-	 * @return
-	 * @throws Exception
-	 */
-	public String loadCommentByPage() throws Exception
-	{
-		this.comList = this.commentService.listAllByPage("from Comments where picid = ?", pageNo, 10, picId);
-		return SUCCESS;
-	}
-	
-	/**
-	 * 加载初所有的评论
+	 * 加载出所有的评论
 	 * @return
 	 * @throws Exception
 	 */
 	public String loadAllComments() throws Exception
 	{
-		this.comTotal = this.commentService.loadByHql("from Comments where picid = ?", picId).size();
-		this.comList = this.commentService.listAllByPage("from Comments where picid = ?", 1, 10, picId);
+		this.comList = this.commentService.loadByHql("from Comments where articleId = ? order by comtime desc", articleId);
+		if(this.comList != null && this.comList.size() > 0) {
+			this.comTotal = this.comList.size();
+		} else {
+			this.comTotal = 0;
+		}
+		
 		return SUCCESS;
 	}
-	
-	
-	
 	
 	public void setCommentService(CommentService commentService)
 	{
@@ -133,15 +125,20 @@ public class CommentAction extends ActionSupport
 		this.pageNo = pageNo;
 	}
 
-	public String getPicId()
-	{
-		return picId;
+	public int getArticleId() {
+		return articleId;
 	}
 
-	public void setPicId(String picId)
-	{
-		this.picId = picId;
+	public void setArticleId(int articleId) {
+		this.articleId = articleId;
 	}
-	
+
+	public String getContent() {
+		return content;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
+	}
 	
 }

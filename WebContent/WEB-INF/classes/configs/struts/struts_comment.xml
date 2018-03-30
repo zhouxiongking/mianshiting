@@ -5,19 +5,16 @@
 <struts>
 	
 	<package name="comment" extends="struts-default" namespace="/">
-		
-		
 	
 	</package>
 
 	<package name="comments" extends="struts-default" namespace="/comment">
 		
-		
 	</package>
 
 	<package name="comment-json" extends="json-default" namespace="/comment-json">
 	
-		<action name="*Action" class="commentAction" method="{1}">
+		<action name="*" class="commentAction" method="{1}">
 			<result type="json"></result>
 		</action>
 		

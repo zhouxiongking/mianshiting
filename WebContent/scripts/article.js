@@ -1,4 +1,6 @@
 $(function() {
+	var search = window.location.search;
+	articleId = search.split('=')[1];
 	/**
 	 * 展示文章详情
 	 */
@@ -8,7 +10,112 @@ $(function() {
 	 * 获取上一篇和下一篇文章
 	 */
 	getPreNextArticle();
+	
+	/**
+	 * 保存评论
+	 */
+	saveComment();
+	
+	/**
+	 * 查找出文章的评论
+	 */
+	searchArticleComment();
 });
+
+/**
+ * 查找出文章的评论
+ */
+function searchArticleComment(){
+	$('.loading').show();
+	$('#ul-message-list').empty();
+	$.ajax({
+		url: '/comment-json/loadAllComments',
+		type: 'get',
+		data: {
+			articleId: articleId
+		},
+		dataType: 'json',
+		success: function(result){
+			$('.loading').hide();
+			renderMsgList(result.comList);
+			// 留言总数
+			$('#totalCount').text(result.comTotal);
+		}	
+	});
+}
+
+/**
+ * btn绑定的事件
+ */
+function saveComment() {
+	$('#commit-btn').click(function() {
+		var content = $('#content').val();
+		if(!content || !content.trim().length){
+			tipShow('写下你的评论吧...');
+			return;
+		}
+		sendSaveCommentRequest(articleId, content);
+	});
+}
+
+/**
+ * 保存评论
+ * @param articleId
+ * @param content
+ */
+function sendSaveCommentRequest(articleId, content) {
+	var btn = $('#commit-btn');
+	btn.attr('disabled', true);
+	$('.loading').show();
+	$.ajax({
+		url: '/comment-json/doSaveComment',
+		type: 'post',
+		dataType: 'json',
+		data: {
+			'articleId': articleId,
+			'content': content
+		},
+		success: function(result) {
+			tipShow('感谢你的评论~');
+			$('.loading').hide();
+			$('#content').val('');
+			searchArticleComment();
+			btn.removeAttr('disabled');
+		}
+	});
+}
+
+/**
+ * 渲染评论列表
+ * @param list
+ */
+function renderMsgList(list) {
+	var ulList = $('#ul-message-list');
+	var buffer = [];
+	for(var i = 0; i < list.length; i++){
+		buffer.push('<li><div class="pic"><img src="/html5_blue/images/anonymity.png" width="50px"/></div>');
+		buffer.push('<div class="msg-content"><span>匿名</span>');
+		buffer.push('<span>' + list[i].comtime + '</span>');
+		buffer.push('<span class="level">第' + (1 + i) + '楼</span>');
+		buffer.push('<p class="msg">' + list[i].content + '</p>');
+		buffer.push('</div></li>');
+	}
+	ulList.append(buffer.join(''));
+}
+
+
+/**
+ * 信息提示
+ * @param content
+ */
+function tipShow(content) {
+	var warning = $('.warning');
+	warning.text(content);
+	warning.animate({opacity: 1}, 1000);
+	setTimeout(function() {
+		warning.animate({opacity: 0}, 1000);
+	}, 2000);
+}
 
 /**
  * 获取上一篇和下一篇文章
@@ -61,7 +168,6 @@ function renderPreNextArticle(preArticle, nextArticle) {
 function initArticlePage() {
 	var search = window.location.search;
 	var articleId = search.split('=')[1];
-	$('#SOHUCS').attr('sid', 'article-' + articleId);
 	if(articleId && parseInt(articleId) > 0) {
 		$.ajax({
 			url: '/article-json/loadArticleDetail',

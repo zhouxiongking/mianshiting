@@ -22,7 +22,7 @@ create table comments
    id                   int                            not null AUTO_INCREMENT,
    userid               varchar(32)                    null,
    cusername            varchar(20)                    null,
-   videoid              varchar(32)                  null,
+   article_id          	int                            null,
    content              varchar(500)                   null,
    comtime              varchar(20)                    null,
    constraint PK_COMMENTS primary key clustered (id)

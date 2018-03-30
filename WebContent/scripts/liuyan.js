@@ -15,7 +15,7 @@ $(function() {
  */
 function loadMsgList(pageNo, type) {
 	$('.loading').show();
-	 $('#ul-message-list').empty();
+	$('#ul-message-list').empty();
 	$.ajax({
 		url: '/message-json/loadMsgByPage',
 		type: 'post',

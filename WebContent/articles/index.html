@@ -11,6 +11,7 @@
 <link rel="stylesheet" type="text/css" media="all" href="/dist/css/style.css" />
 <link rel="stylesheet" type="text/css" media="all" href="/dist/css/article.css" />
 <link rel="stylesheet" type="text/css" media="all" href="/dist/css/common-article.css" />
+<link rel="stylesheet" type="text/css" media="all" href="/html5_blue/css/message.css" />
 <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
 <link href="/html5_blue/css/video-js.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="/html5_blue/js/jquery.min.js"></script>
@@ -99,6 +100,26 @@ var _hmt = _hmt || [];
       </ul>
     </div>
     <div class="clear"></div>
+    <div class="comment padding-20">
+    	<dl>
+			<dt></dt>
+            <dd>
+            	<textarea name="content" id="content" placeholder="写评论..."></textarea>
+            </dd>
+            <dd class="m-t-20">
+            	<button type="button" class="tj" id="commit-btn">提交</button>
+            	<span class="warning"></span>
+            </dd>
+		</dl>
+		<!-- 评论列表区 -->
+	    <div class="message-div m-t-20">
+	     	<h2 class="count-msg">评论 <b id="totalCount"></b></h2>
+	     	<div class="loading">
+		    	<img src="/html5_blue/images/loading.gif"></img>
+		    </div>
+	     	<ul id="ul-message-list"></ul>
+	     </div>
+    </div>
   </div>
   
 <div class="sider">

@@ -16,8 +16,8 @@
         <property name="cusername" type="string">
             <column name="cusername" length="20" />
         </property>
-        <property name="videoid" type="string">
-            <column name="videoid" length="32" />
+        <property name="articleId" type="int">
+            <column name="article_id"/>
         </property>
         <property name="content" type="string">
             <column name="content" length="500" />

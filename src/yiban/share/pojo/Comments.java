@@ -15,7 +15,7 @@ public class Comments  implements java.io.Serializable {
      private int id;
      private String userid;
      private String cusername;
-     private String videoid;
+     private int articleId;
      private String content;
      private String comtime;
 
@@ -32,11 +32,11 @@ public class Comments  implements java.io.Serializable {
     }
     
     /** full constructor */
-    public Comments(int id, String userid, String cusername, String videoid, String content, String comtime) {
+    public Comments(int id, String userid, String cusername, int articleId, String content, String comtime) {
         this.id = id;
         this.userid = userid;
         this.cusername = cusername;
-        this.videoid = videoid;
+        this.articleId = articleId;
         this.content = content;
         this.comtime = comtime;
     }
@@ -59,12 +59,12 @@ public class Comments  implements java.io.Serializable {
         this.userid = userid;
     }
 
-    public String getVideoid() {
-		return videoid;
+	public int getArticleId() {
+		return articleId;
 	}
 
-	public void setVideoid(String videoid) {
-		this.videoid = videoid;
+	public void setArticleId(int articleId) {
+		this.articleId = articleId;
 	}
 
 	public String getContent() {
@@ -83,7 +83,7 @@ public class Comments  implements java.io.Serializable {
         this.comtime = comtime;
     }
    
-   public String getCusername()
+    public String getCusername()
 	{
 		return cusername;
 	}

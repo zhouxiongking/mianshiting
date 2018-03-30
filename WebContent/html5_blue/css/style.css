@@ -1524,18 +1524,21 @@ text-decoration:underline;
 .pagess ul li a:hover {color: #fff;}
 
 .message{ overflow:hidden}
+.comment{background-color: #fff;}
 .message dd{ margin-bottom:10px;}
 .message .kuang{ width:500px; height:40px; padding-left:10px; border:1px solid #ddd}
 .message textarea{ width:650px; height:200px; padding:10px; border:1px solid #ddd}
+.comment textarea{ width:650px; height:100px; padding:10px; border:1px solid #ddd}
 @media (max-width: 768px) {
-	.message textarea {
+	.message textarea,
+	.comment textarea {
 		width: 93%;
 	}
 }
-.message .tj{ width:130px; height:40px; text-align:center; line-height:40px; background:#41b3e4; color:#fff; border:0; cursor:pointer;outline: none;}
-.message .tj:disabled {cursor: not-allowed;}
-.message .tj:disabled:hover {background:#41b3e4;}
-.message .tj:hover{background:#21a6e0;}
+.message .tj, .comment .tj{ width:130px; height:40px; text-align:center; line-height:40px; background:#41b3e4; color:#fff; border:0; cursor:pointer;outline: none;border-radius: 10px;}
+.message .tj:disabled, .comment .tj:disabled {cursor: not-allowed;}
+.message .tj:disabled:hover, .comment .tj:disabled:hover {background:#41b3e4;}
+.message .tj:hover, .comment .tj:hover{background:#21a6e0;}
 .loading {text-align: center; display: none;}
 .no-more {font-size: .9rem; text-align: center; display: none; margin-top: 20px;}
 .hot-label li a {color: #666;background-color: #f6f6f6;float: left;width: 85%;margin: 0 1% 1% 0;padding: 0 3px;font-size: 12px;height: 29px;line-height: 29px;overflow: hidden;}
@@ -1826,3 +1829,10 @@ input, button, select, textarea {
 	}
 }
 
+.padding-20 {
+	padding: 20px;	
+}
+
+.m-t-20 {
+	margin-top: 20px;
+}

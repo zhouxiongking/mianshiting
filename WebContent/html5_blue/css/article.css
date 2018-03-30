@@ -53,3 +53,9 @@ article, aside, blockquote, body, button, dd, details, div, dl, dt, fieldset, fi
 .for-video {
 	width: 100%;
 }
+
+.comment-div ul li {
+	border-bottom: 1px solid #e3e3e3;
+	padding-bottom: 20px;
+	margin-bottom: 20px;
+}
