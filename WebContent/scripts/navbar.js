@@ -12,9 +12,8 @@ function initNav() {
 	var category = search.split('=')[1];
 	var basicArr = ['basic', 'Javascript', 'CSS3', 'HTML5'];
 	var advanceArr = ['advance', 'ES6'];
-	var frameworkArr = ['framework', 'Vue', 'AngularJS', 'React'];
+	var frameworkArr = ['framework', 'Vue', 'AngularJS', 'React', 'NodeJS'];
 	var toolArr = ['tool', 'Git', 'Webpack', 'Gulp'];
-	var dbArr = ['db', 'Mysql'];
 	var nav = $('.navbar-collapse');
 	var buffer = [];
 	buffer.push('<ul>');
@@ -22,6 +21,12 @@ function initNav() {
 		buffer.push('<li class="menu-item current_page_item"><a href="/">首页</a></li>');
 	} else {
 		buffer.push('<li class="menu-item"><a href="/">首页</a></li>');
+	}
+	
+	if(pathname.indexOf('lianxi') >= 0) {
+		buffer.push('<li class="menu-item current_page_item"><a href="/lianxi/">练习</a>');
+	} else {
+		buffer.push('<li class="menu-item "><a href="/lianxi/">练习</a>');
 	}
 	
 	if(basicArr.join().indexOf(category) >= 0) {
@@ -53,6 +58,7 @@ function initNav() {
 	buffer.push('<li class="sub-menu-item"><a href="/html/?category=Vue">Vue全家桶</a></li>');
 	buffer.push('<li class="sub-menu-item"><a href="/html/?category=AngularJS">AngularJS</a></li>');
 	buffer.push('<li class="sub-menu-item"><a href="/html/?category=React">React全家桶</a></li>');
+	buffer.push('<li class="sub-menu-item"><a href="/html/?category=NodeJS">NodeJS</a></li>');
 	buffer.push('</ul></li>');
 	if(toolArr.join().indexOf(category) >= 0) {
 		buffer.push('<li class="menu-item current_page_item"><a href="/html/?category=tool">工具教学</a>');
@@ -63,20 +69,7 @@ function initNav() {
 	buffer.push('<li class="sub-menu-item"><a href="/html/?category=Git">Git教学</a></li>');
 	buffer.push('<li class="sub-menu-item"><a href="/html/?category=Webpack">Webpack教学</a></li>');
 	buffer.push('</ul></li>');
-	if("NodeJS".indexOf(category) >= 0) {
-		buffer.push('<li class="menu-item current_page_item"><a href="/html/?category=NodeJS">NodeJS</a>');
-	} else {
-		buffer.push('<li class="menu-item "><a href="/html/?category=NodeJS">NodeJS</a>');
-	}
 	buffer.push('</li>');
-	if(dbArr.join().indexOf(category) >= 0) {
-		buffer.push('<li class="menu-item current_page_item"><a href="/html/?category=db">数据库</a>');
-	} else {
-		buffer.push('<li class="menu-item "><a href="/html/?category=db">数据库</a>');
-	}
-	buffer.push('<ul class="sub-menu">');
-	buffer.push('<li class="sub-menu-item"><a href="/html/?category=Mysql">Mysql</a></li>');
-	buffer.push('</ul></li>');
 	if("synthesize".indexOf(category) >= 0) {
 		buffer.push('<li class="menu-item current_page_item"><a href="/html/?category=synthesize">综合</a>');
 	} else {
@@ -96,6 +89,6 @@ function initNav() {
 	}
 	buffer.push('<ul class="sub-menu"></ul></li>');
 	buffer.push('</ul>');
-	
+	nav.empty();
 	nav.append($(buffer.join('')));
 }

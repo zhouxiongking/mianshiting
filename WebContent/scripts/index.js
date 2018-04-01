@@ -115,8 +115,6 @@ var mapObj = {
 	'advance': ['进阶教学', ''],
 	'framework': ['框架教学', ''],
 	'tool': ['工具教学', ''],
-	'NodeJS': ['NodeJS', ''],
-	'db': ['数据库', ''],
 	'Javascript': ['基础教学', 'Javascript'],
 	'HTML5': ['基础教学', 'HTML5'],
 	'CSS3': ['基础教学', 'CSS3'],
@@ -124,9 +122,9 @@ var mapObj = {
 	'Vue': ['框架教学', 'Vue全家桶'],
 	'AngularJS': ['框架教学', 'AngularJS'],
 	'React': ['框架教学', 'React全家桶'],
+	'NodeJS': ['框架教学', 'NodeJS'],
 	'Git': ['工具教学', 'Git教学'],
 	'Webpack': ['工具教学', 'webpack教学'],
-	'Mysql': ['数据库', 'Mysql'],
 	'synthesize': ['综合', '']
 }
 
@@ -161,16 +159,13 @@ function dealCurrentCategory(category) {
 		case 'Vue': 
 		case 'AngularJS': 
 		case 'React': 
+		case 'NodeJS': 
 			first.attr('href', '/html/?category=framework');
 			second.attr('href', '/html/?category=' + category);
 			break;
 		case 'Git':
 		case 'Webpack':
 			first.attr('href', '/html/?category=tool');
-			second.attr('href', '/html/?category=' + category);
-			break;
-		case 'Mysql':
-			first.attr('href', '/html/?category=db');
 			second.attr('href', '/html/?category=' + category);
 			break;
 		default:

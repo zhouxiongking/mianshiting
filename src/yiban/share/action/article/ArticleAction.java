@@ -206,7 +206,6 @@ public class ArticleAction extends ActionSupport
 		this.articleList = new ArrayList<Article>();
 		Article article = null;
 		for(Object[] obj: tempList) {
-			System.out.println(obj);
 			article = new Article();
 			article.setId((Integer)obj[0]);
 			article.setDescription((String)obj[1]);
