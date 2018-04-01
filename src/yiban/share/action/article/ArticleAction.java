@@ -201,7 +201,7 @@ public class ArticleAction extends ActionSupport
 	 */
 	public String loadArticleByPage() throws Exception
 	{
-		String sql = "select a.*, count(c.article_id) from article as a left join comments as c on a.id = c.article_id group by a.id";
+		String sql = "select a.*, count(c.article_id) from article as a left join comments as c on a.id = c.article_id group by a.id order by clicks asc";
 		List<Object[]> tempList = this.articleService.listPageBySQL(sql, this.pageNo, 10);
 		this.articleList = new ArrayList<Article>();
 		Article article = null;
