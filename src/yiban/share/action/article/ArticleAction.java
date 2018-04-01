@@ -123,7 +123,7 @@ public class ArticleAction extends ActionSupport
 		
 		//5.处理时间
 		Date date = new Date();
-		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");  
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");  
 		String time = df.format(date);  
 		
 		this.article.setUsername("corder分享");
@@ -201,9 +201,24 @@ public class ArticleAction extends ActionSupport
 	 */
 	public String loadArticleByPage() throws Exception
 	{
-		String hql = "from Article where isPass = 1 order by clicks asc";
-		
-		this.articleList = this.articleService.listAllByPage(hql, this.pageNo, 10);
+		String sql = "select a.*, count(c.article_id) from article as a left join comments as c on a.id = c.article_id group by a.id";
+		List<Object[]> tempList = this.articleService.listPageBySQL(sql, this.pageNo, 10);
+		this.articleList = new ArrayList<Article>();
+		Article article = null;
+		for(Object[] obj: tempList) {
+			System.out.println(obj);
+			article = new Article();
+			article.setId((Integer)obj[0]);
+			article.setDescription((String)obj[1]);
+			article.setTitle((String)obj[2]);
+			article.setClicks((Integer)obj[5]);
+			article.setUploadtime((String)obj[6]);
+			article.setUrl((String)obj[7]);
+			article.setCategory((String)obj[10]);
+			article.setUsername((String)obj[12]);
+			article.setCommentCount(new Integer(String.valueOf(obj[14])));
+			this.articleList.add(article);
+		}
 		
 		return SUCCESS;
 	}

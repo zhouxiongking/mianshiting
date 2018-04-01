@@ -35,13 +35,14 @@ public class Article  implements java.io.Serializable {
      private int clicks;
      // 是否审核通过
      private int isPass;
+     // 评论量
+     private int commentCount;
 
     // Constructors
 
     /** default constructor */
     public Article() {
     }
-
     
     /** full constructor */
     public Article(String description, String title, String label, String content, String uploadtime, 
@@ -158,5 +159,12 @@ public class Article  implements java.io.Serializable {
 		this.isPass = isPass;
 	}
 
+	public int getCommentCount() {
+		return commentCount;
+	}
+
+	public void setCommentCount(int commentCount) {
+		this.commentCount = commentCount;
+	}
 	
 }

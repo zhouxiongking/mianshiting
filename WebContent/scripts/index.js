@@ -244,11 +244,11 @@ function renderPage(list, type) {
 		buffer.push('<span><i class="fa fa-clock-o"></i>' + list[i].uploadtime + '</span>');
 		// 作者
 		buffer.push('<span class="user"><i class="fa fa-user"></i><span>' + list[i].username + '</span></span>')
-		// 评论数
-//		buffer.push('<span><i class="fa fa-comment-o"></i>');
-//		buffer.push('<span class="ds-thread-count" data-thread-key="156">21</span></span>');
 		// 阅读数
 		buffer.push('<span><i class="fa fa-eye"></i>' + list[i].clicks + '</span>');
+		// 评论数
+		buffer.push('<span><i class="fa fa-comment-o"></i>');
+		buffer.push('<span class="ds-thread-count" data-thread-key="156">' + list[i].commentCount + '</span></span>');
 		// 以后可用于点赞
 		buffer.push('<span></span>');
 		// 阅读详情
