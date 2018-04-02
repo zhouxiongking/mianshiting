@@ -155,7 +155,14 @@ public class ArticleAction extends ActionSupport
 	public String loadArticleDetail() throws Exception
 	{
 		int id = Integer.parseInt(this.articleId);
-		Article searchArticle = (Article) this.articleService.loadByHql("from Article  where id = ?", id).get(0);
+		String sql = "select a.*, c.* from article as a left join "
+				+ "(select article_id, count(article_id) from comments group by article_id) as c "
+				+ "on c.article_id = a.id where a.is_pass = 1 and a.id = ? order by a.clicks asc";
+		List<Article> list = this.getListBySql(sql, "detail", 1, 10, id);
+		Article searchArticle = new Article();
+		if(list != null && list.size() > 0) {
+			searchArticle = list.get(0);
+		}
 		int clicks = 0;
 		if(searchArticle != null && searchArticle.getClicks() > 0) {
 			clicks = searchArticle.getClicks() + 1;
@@ -201,23 +208,10 @@ public class ArticleAction extends ActionSupport
 	 */
 	public String loadArticleByPage() throws Exception
 	{
-		String sql = "select a.*, count(c.article_id) from article as a left join comments as c on a.id = c.article_id group by a.id";
-		List<Object[]> tempList = this.articleService.listPageBySQL(sql, this.pageNo, 10);
-		this.articleList = new ArrayList<Article>();
-		Article article = null;
-		for(Object[] obj: tempList) {
-			article = new Article();
-			article.setId((Integer)obj[0]);
-			article.setDescription((String)obj[1]);
-			article.setTitle((String)obj[2]);
-			article.setClicks((Integer)obj[5]);
-			article.setUploadtime((String)obj[6]);
-			article.setUrl((String)obj[7]);
-			article.setCategory((String)obj[10]);
-			article.setUsername((String)obj[12]);
-			article.setCommentCount(new Integer(String.valueOf(obj[14])));
-			this.articleList.add(article);
-		}
+		String sql = "select a.*, c.* from article as a left join "
+				+ "(select article_id, count(article_id) from comments group by article_id) as c "
+				+ "on c.article_id = a.id where a.is_pass = 1 order by a.clicks asc";
+		this.articleList = this.getListBySql(sql, "list", pageNo, 10);
 		
 		return SUCCESS;
 	}
@@ -309,9 +303,40 @@ public class ArticleAction extends ActionSupport
 		} else {
 			conditions = " '" + this.category + "' ";
 		}
-		String sqlString = "from Article where category in (" + conditions + ") and isPass = 1 order by clicks asc";
-		this.articleList = this.articleService.listAllByPage(sqlString, this.pageNo, 10);
+		
+		String sql = "select a.*, c.* from article as a left join "
+				+ "(select article_id, count(article_id) from comments group by article_id) as c "
+				+ "on c.article_id = a.id where a.is_pass = 1 and category in (" + conditions + ") order by a.clicks asc";
+		this.articleList = this.getListBySql(sql, "list", pageNo, 10);
+		
 		return SUCCESS;
+	}
+	
+	private List<Article> getListBySql(String sql, String type, int pageNo, int pageSize, Object... parameters){
+		List<Object[]> tempList = this.articleService.listPageBySQL(sql, pageNo, pageSize, parameters);
+		List<Article> articleList = new ArrayList<Article>();
+		Article article = null;
+		for(Object[] obj: tempList) {
+			article = new Article();
+			article.setId((Integer)obj[0]);
+			article.setDescription((String)obj[1]);
+			article.setTitle((String)obj[2]);
+			if("detail".equals(type)){
+				article.setContent((String)obj[4]);
+			}
+			article.setClicks((Integer)obj[5]);
+			article.setUploadtime((String)obj[6]);
+			article.setUrl((String)obj[7]);
+			article.setCategory((String)obj[10]);
+			article.setUsername((String)obj[12]);
+			if(obj[15] == null) {
+				article.setCommentCount(0);
+			} else {
+				article.setCommentCount(new Integer(String.valueOf(obj[15])));
+			}
+			articleList.add(article);
+		}	
+		return articleList;
 	}
 	
 	/**
