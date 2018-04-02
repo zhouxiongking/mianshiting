@@ -51,7 +51,7 @@ a:hover {
 	text-decoration: none;
 }
 code {
-	padding: 2px 4px;
+	padding-right: 4px;
 	font-size: 90%;
 	color: #c7254e;
 	-webkit-border-radius: 4px;
