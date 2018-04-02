@@ -60,7 +60,7 @@ public class CommentAction extends ActionSupport
 	 */
 	public String loadAllComments() throws Exception
 	{
-		this.comList = this.commentService.loadByHql("from Comments where articleId = ? order by comtime desc", articleId);
+		this.comList = this.commentService.loadByHql("from Comments where articleId = ? order by comtime asc", articleId);
 		if(this.comList != null && this.comList.size() > 0) {
 			this.comTotal = this.comList.size();
 		} else {

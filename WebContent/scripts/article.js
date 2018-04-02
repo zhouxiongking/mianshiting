@@ -188,9 +188,9 @@ function initArticlePage() {
  */
 function renderArticle(article) {
 	var articleDiv = $('.con-article');
-	$('.con-article').empty();
 	articleDiv.empty();
 	articleDiv.append(article.content);
+	var sub = $('.article-box .article-sub');
 	// 如果文章有对应的视频，则添加上视频
 	if(article.videoUrl) {
 		var videoBuffer = [];
@@ -203,7 +203,6 @@ function renderArticle(article) {
 		
 		var videoObj = $(videoBuffer.join(''));
 		// 正文内容上部分
-		var sub = $('.article-box .article-sub');
 		sub.after(videoObj);
 		// 控制视频高度
 		var px = $('#video').css('width');
@@ -211,6 +210,16 @@ function renderArticle(article) {
 		// 控制视频高度
 		$('#video').css('height',width / 2 + 'px');
 	}
+	
+	// 添加阅读量和评论数
+	var buffer = [];
+	// 阅读数
+	buffer.push('<span><i class="fa fa-eye"></i>' + article.clicks + '</span>');
+	// 评论数
+	buffer.push('<span><i class="fa fa-comment-o"></i>');
+	buffer.push('<span class="ds-thread-count" data-thread-key="156">' + article.commentCount + '</span></span>');
+	sub.append($(buffer.join('')));
+	
 	// 如果文章中有其他的文章链接，则删掉这个链接
 	var linkA = $('.article-content a');
 	for(var i = 0; i < linkA.length; i++) {
