@@ -327,6 +327,7 @@ public class ArticleAction extends ActionSupport
 			article.setClicks((Integer)obj[5]);
 			article.setUploadtime((String)obj[6]);
 			article.setUrl((String)obj[7]);
+			article.setVideoUrl((String)obj[8]);
 			article.setCategory((String)obj[10]);
 			article.setUsername((String)obj[12]);
 			if(obj[15] == null) {
