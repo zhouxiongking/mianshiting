@@ -220,11 +220,21 @@ function renderArticle(article) {
 	buffer.push('<span class="ds-thread-count" data-thread-key="156">' + article.commentCount + '</span></span>');
 	sub.append($(buffer.join('')));
 	
-	// 如果文章中有其他的文章链接，则删掉这个链接
-	var linkA = $('.article-content a');
-	for(var i = 0; i < linkA.length; i++) {
-		var linkObj = $(linkA[i]);
-		linkObj.attr("href", 'javascript:;');
+	// 处理掉原来不符合的元素
+	var figureList = $('figure');
+	var preList = $('figure table tbody tr td pre');
+	for(var i = 0; i < preList.length; i++) {
+		var figure = $(figureList[i]);
+		var pre = $(preList[i]);
+		var prev = $(figureList[i]).prev();
+		var html = pre.html();
+		var newPre = $('<pre></pre>');
+		var newCode = $('<code></code>');
+		newCode.html(html);
+		newPre.append(newCode);
+		figure.remove();
+		prev.after(newPre);
+		
 	}
 }
 

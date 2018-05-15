@@ -79,14 +79,13 @@ img {
 .article-box .article-content>div>ul, 
 .article-box .article-content>ol,
 .article-box .article-content>ul {
-    padding: 20px 30px;
+    padding: 0 10px;
     color: #666;
 }
 
 .article-box .article-content>div ul, 
 .article-box .article-content ul {
     list-style: square outside;
-    margin-bottom: 20px;
 }
 
 .article-box .article-content>div ol, 
@@ -106,7 +105,7 @@ img {
 .article-box .article-content blockquote {
     position: relative;
     font-size: 15px;
-    line-height: 1.5;
+    line-height: 2.5;
     color: #999;
     margin: 1em 0;
     padding: 12px 10px;
@@ -253,6 +252,7 @@ a {
 	background-color: #f4f5f5;
     margin-top: 20px;
     margin-bottom: 20px;
+    overflow-x: scroll;
 }
 
 .article-content pre > code {
